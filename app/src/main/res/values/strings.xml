@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Android Quiz</string>
+    <string name="java_quiz">Java Quiz</string>
+    <string name="xml_quiz">XML Quiz</string>
+</resources>
