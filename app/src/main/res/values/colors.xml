@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="ic_launcher_background">#000542</color>
 
+    <color name="colorNormalAnswer">@android:color/black</color>
     <color name="colorCorrectAnswer">#00ff00</color>
     <color name="colorWrongAnswer">#FF4081</color>
 </resources>

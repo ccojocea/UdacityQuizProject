@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AnswerText">
+        <!--<item name="android:fontFamily">@font/someFont</item>-->
+        <item name="android:textColor">@color/colorNormalAnswer</item>
+        <item name="android:background">@drawable/bg_select</item>
+        <item name="android:textSize">@dimen/answer_font_size</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>
