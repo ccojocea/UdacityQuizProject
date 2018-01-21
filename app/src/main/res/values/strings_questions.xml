@@ -2,58 +2,68 @@
 <resources>
 
     <string name="q1">Question 1</string>
-    <string name="a11">Answer 1</string>
-    <string name="a12">Answer 2</string>
-    <string name="a13">Answer 3</string>
-    <string name="a14">Answer 4</string>
+    <string name="a11">Answer 11</string>
+    <string name="a12">Answer 12</string>
+    <string name="a13">Answer 13</string>
+    <string name="a14">Answer 14</string>
 
     <string name="q2">Question 2</string>
-    <string name="a21">Answer 1</string>
-    <string name="a22">Answer 2</string>
-    <string name="a23">Answer 3</string>
-    <string name="a24">Answer 4</string>
+    <string name="a21">Answer 21</string>
+    <string name="a22">Answer 22</string>
+    <string name="a23">Answer 23</string>
+    <string name="a24">Answer 24</string>
 
     <string name="q3">Question 3</string>
-    <string name="a31">Answer 1</string>
-    <string name="a32">Answer 2</string>
-    <string name="a33">Answer 3</string>
-    <string name="a34">Answer 4</string>
+    <string name="a31">Answer 31</string>
+    <string name="a32">Answer 32</string>
+    <string name="a33">Answer 33</string>
+    <string name="a34">Answer 34</string>
 
     <string name="q4">Question 4</string>
-    <string name="a41">Answer 1</string>
-    <string name="a42">Answer 2</string>
-    <string name="a43">Answer 3</string>
-    <string name="a44">Answer 4</string>
+    <string name="a41">Answer 41</string>
+    <string name="a42">Answer 42</string>
+    <string name="a43">Answer 43</string>
+    <string name="a44">Answer 44</string>
 
     <string name="q5">Question 5</string>
-    <string name="a51">Answer 1</string>
-    <string name="a52">Answer 2</string>
-    <string name="a53">Answer 3</string>
-    <string name="a54">Answer 4</string>
+    <string name="a51">Answer 51</string>
+    <string name="a52">Answer 52</string>
+    <string name="a53">Answer 53</string>
+    <string name="a54">Answer 54</string>
 
     <string name="q6">Question 6</string>
-    <string name="a61">Answer 1</string>
-    <string name="a62">Answer 2</string>
-    <string name="a63">Answer 3</string>
-    <string name="a64">Answer 4</string>
+    <string name="a61">Answer 61</string>
+    <string name="a62">Answer 62</string>
+    <string name="a63">Answer 63</string>
+    <string name="a64">Answer 64</string>
 
     <string name="q7">Question 7</string>
-    <string name="a71">Answer 1</string>
-    <string name="a72">Answer 2</string>
-    <string name="a73">Answer 3</string>
-    <string name="a74">Answer 4</string>
+    <string name="a71">Answer 71</string>
+    <string name="a72">Answer 72</string>
+    <string name="a73">Answer 73</string>
+    <string name="a74">Answer 74</string>
 
     <string name="q8">Question 8</string>
-    <string name="a81">Answer 1</string>
-    <string name="a82">Answer 2</string>
-    <string name="a83">Answer 3</string>
-    <string name="a84">Answer 4</string>
+    <string name="a81">Answer 81</string>
+    <string name="a82">Answer 82</string>
+    <string name="a83">Answer 83</string>
+    <string name="a84">Answer 84</string>
 
     <string name="q9">Question 9</string>
-    <string name="a91">Answer</string>
+    <string name="a91">Answer 9</string>
+    <string name="hint_q9">Please type your answer here 9</string>
 
     <string name="q10">Question 10</string>
-    <string name="a101">Answer</string>
+    <string name="a101">Answer 10</string>
+    <string name="hint_q10">Please type your answer here 10</string>
+
+    <string name="q11">Question 11</string>
+    <string name="a111">Answer 11</string>
+    <string name="hint_q11">Please type your answer here 11</string>
+
+    <string name="q12">Question 12</string>
+    <string name="a121">Answer 12</string>
+    <string name="hint_q12">Please type your answer here 12</string>
 
 
 </resources>

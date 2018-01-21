@@ -2,4 +2,7 @@
     <string name="app_name">Android Quiz</string>
     <string name="java_quiz">Java Quiz</string>
     <string name="xml_quiz">XML Quiz</string>
+    <string name="single_answer">The following questions are single answer</string>
+    <string name="multiple_answer">The following questions are multiple answer</string>
+    <string name="edited_answer">Please type your answer for the following questions</string>
 </resources>
