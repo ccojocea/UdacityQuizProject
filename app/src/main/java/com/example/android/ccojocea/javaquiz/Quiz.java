@@ -10,4 +10,10 @@ public class Quiz {
     public ArrayList<SingleAnswerQuestion> singleAnswerQuestions;
     public ArrayList<MultipleAnswerQuestion> multipleAnswerQuestions;
     public ArrayList<EditedAnswerQuestion> editedAnswerQuestions;
+
+    public Quiz(){
+        singleAnswerQuestions = new ArrayList<>();
+        multipleAnswerQuestions = new ArrayList<>();
+        editedAnswerQuestions = new ArrayList<>();
+    }
 }

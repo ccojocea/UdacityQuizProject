@@ -5,11 +5,10 @@ package com.example.android.ccojocea.javaquiz;
  */
 
 public class SingleAnswerQuestion extends Question {
-    private String answer;
     private int correctAnswerNumber;
 
-    public SingleAnswerQuestion(int id, String questionText, int correctAnswer) {
-        super(id, questionText);
+    public SingleAnswerQuestion(int id, int correctAnswer) {
+        super(id);
         correctAnswerNumber = correctAnswer;
     }
 

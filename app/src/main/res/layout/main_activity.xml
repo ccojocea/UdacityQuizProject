@@ -344,8 +344,9 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_q9"
-            android:maxLines="1"/>
+            android:hint="@string/h9"
+            android:maxLines="1"
+            android:inputType="text"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -356,8 +357,9 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_q10"
-            android:maxLines="1"/>
+            android:hint="@string/h10"
+            android:maxLines="1"
+            android:inputType="text"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -368,8 +370,9 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_q11"
-            android:maxLines="1"/>
+            android:hint="@string/h11"
+            android:maxLines="1"
+            android:inputType="text"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -380,8 +383,15 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_q12"
-            android:maxLines="1"/>
+            android:hint="@string/h12"
+            android:maxLines="1"
+            android:inputType="text"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Check your answers"
+            android:onClick="checkAnswers"/>
 
     </LinearLayout>
 

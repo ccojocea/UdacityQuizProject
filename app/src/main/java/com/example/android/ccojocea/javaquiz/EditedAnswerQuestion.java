@@ -7,8 +7,8 @@ package com.example.android.ccojocea.javaquiz;
 public class EditedAnswerQuestion extends Question {
     private String correctAnswer;
 
-    protected EditedAnswerQuestion(int id, String questionText, String correctAnswer) {
-        super(id, questionText);
+    protected EditedAnswerQuestion(int id, String correctAnswer) {
+        super(id);
         this.correctAnswer = correctAnswer;
     }
 

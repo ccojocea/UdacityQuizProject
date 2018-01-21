@@ -5,11 +5,10 @@ package com.example.android.ccojocea.javaquiz;
  */
 
 public class MultipleAnswerQuestion extends Question {
-    private String[] answers = new String[4];
     private int correctAnswer1, correctAnswer2;
 
-    protected MultipleAnswerQuestion(int id, String questionText, int correctAnswer1, int correctAnswer2) {
-        super(id, questionText);
+    protected MultipleAnswerQuestion(int id, int correctAnswer1, int correctAnswer2) {
+        super(id);
         this.correctAnswer1 = correctAnswer1;
         this.correctAnswer2 = correctAnswer2;
     }
