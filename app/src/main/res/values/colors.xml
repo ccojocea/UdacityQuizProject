@@ -15,7 +15,8 @@
     <color name="textOnSecondary">#000000</color>
 
     <color name="textNormalAnswer">@android:color/black</color>
-    <color name="textCorrectAnswer">#00ff00</color>
+    <color name="textCorrectAnswerDark">#005005</color>
+    <color name="textCorrectAnswer">#2e7d32</color>
     <color name="textWrongAnswer">#FF4081</color>
 
 

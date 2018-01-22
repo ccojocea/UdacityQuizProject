@@ -8,6 +8,7 @@
     <dimen name="padding_xs">8dp</dimen>
     <dimen name="layout_margin">16dp</dimen>
     <dimen name="layout_margin_xs">8dp</dimen>
+    <dimen name="layout_margin_xxs">4dp</dimen>
     <dimen name="card_view_corner_radius">12dp</dimen>
     <dimen name="card_view_elevation">8dp</dimen>
 </resources>

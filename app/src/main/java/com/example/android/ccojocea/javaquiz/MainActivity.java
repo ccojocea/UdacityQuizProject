@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -128,14 +129,15 @@ public class MainActivity extends AppCompatActivity {
             score++;
         }
 
+        //change color of correct radio button answers to green
         RadioButton correctRadioButton1 = findViewById(R.id.q1_a3_radio_button);
-        correctRadioButton1.setBackgroundColor(getResources().getColor(R.color.textCorrectAnswer));
+        correctRadioButton1.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         RadioButton correctRadioButton2 = findViewById(R.id.q2_a2_radio_button);
-        correctRadioButton2.setBackgroundColor(getResources().getColor(R.color.textCorrectAnswer));
+        correctRadioButton2.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         RadioButton correctRadioButton3 = findViewById(R.id.q3_a4_radio_button);
-        correctRadioButton3.setBackgroundColor(getResources().getColor(R.color.textCorrectAnswer));
+        correctRadioButton3.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         RadioButton correctRadioButton4 = findViewById(R.id.q4_a1_radio_button);
-        correctRadioButton4.setBackgroundColor(getResources().getColor(R.color.textCorrectAnswer));
+        correctRadioButton4.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
 
         return score;
     }
@@ -148,21 +150,30 @@ public class MainActivity extends AppCompatActivity {
     private float checkMultipleQuestionAnswers(){
         float score = 0.0f;
 
+        //Find each checkbox, change color of correct answer checkboxes to reflect their state
         CheckBox checkBox51 = findViewById(R.id.q5_a1_checkbox);
         CheckBox checkBox52 = findViewById(R.id.q5_a2_checkbox);
+        checkBox52.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         CheckBox checkBox53 = findViewById(R.id.q5_a3_checkbox);
         CheckBox checkBox54 = findViewById(R.id.q5_a4_checkbox);
+        checkBox54.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         CheckBox checkBox61 = findViewById(R.id.q6_a1_checkbox);
+        checkBox61.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         CheckBox checkBox62 = findViewById(R.id.q6_a2_checkbox);
         CheckBox checkBox63 = findViewById(R.id.q6_a3_checkbox);
+        checkBox63.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         CheckBox checkBox64 = findViewById(R.id.q6_a4_checkbox);
         CheckBox checkBox71 = findViewById(R.id.q7_a1_checkbox);
         CheckBox checkBox72 = findViewById(R.id.q7_a2_checkbox);
         CheckBox checkBox73 = findViewById(R.id.q7_a3_checkbox);
+        checkBox73.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         CheckBox checkBox74 = findViewById(R.id.q7_a4_checkbox);
+        checkBox74.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         CheckBox checkBox81 = findViewById(R.id.q8_a1_checkbox);
         CheckBox checkBox82 = findViewById(R.id.q8_a2_checkbox);
+        checkBox82.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         CheckBox checkBox83 = findViewById(R.id.q8_a3_checkbox);
+        checkBox83.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
         CheckBox checkBox84 = findViewById(R.id.q8_a4_checkbox);
 
         score += mQuiz.multipleAnswerQuestions.get(0).validateAnswer(checkBox51.isChecked(), checkBox52.isChecked(), checkBox53.isChecked(), checkBox54.isChecked());
@@ -185,18 +196,48 @@ public class MainActivity extends AppCompatActivity {
         EditText editText11 = findViewById(R.id.q11_edit_text);
         EditText editText12 = findViewById(R.id.q12_edit_text);
 
+        TextView textView9 = findViewById(R.id.text_view_q9);
+        TextView textView10 = findViewById(R.id.text_view_q10);
+        TextView textView11 = findViewById(R.id.text_view_q11);
+        TextView textView12 = findViewById(R.id.text_view_q12);
+        textView9.setVisibility(View.VISIBLE);
+        textView10.setVisibility(View.VISIBLE);
+        textView11.setVisibility(View.VISIBLE);
+        textView12.setVisibility(View.VISIBLE);
+
         if(mQuiz.editedAnswerQuestions.get(0).validateAnswer(editText9.getText().toString())){
             score++;
+            textView9.setText(getString(R.string.edited_answer_correct));
+            editText9.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+        }else{
+            textView9.setText(getString(R.string.edited_answer_incorrect) + " " + getString(R.string.a90));
+            editText9.setTextColor(getResources().getColor(R.color.textWrongAnswer));
         }
         if(mQuiz.editedAnswerQuestions.get(1).validateAnswer(editText10.getText().toString())){
             score++;
+            textView10.setText(getString(R.string.edited_answer_correct));
+            editText10.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+        }else{
+            textView10.setText(getString(R.string.edited_answer_incorrect) + " " + getString(R.string.a100));
+            editText10.setTextColor(getResources().getColor(R.color.textWrongAnswer));
         }
         if(mQuiz.editedAnswerQuestions.get(2).validateAnswer(editText11.getText().toString())){
             score++;
+            textView11.setText(getString(R.string.edited_answer_correct));
+            editText11.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+        }else{
+            textView11.setText(getString(R.string.edited_answer_incorrect) + " " + getString(R.string.a110));
+            editText11.setTextColor(getResources().getColor(R.color.textWrongAnswer));
         }
         if(mQuiz.editedAnswerQuestions.get(3).validateAnswer(editText12.getText().toString())){
             score++;
+            textView12.setText(getString(R.string.edited_answer_correct));
+            editText12.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+        }else{
+            textView12.setText(getString(R.string.edited_answer_incorrect) + " " + getString(R.string.a120));
+            editText12.setTextColor(getResources().getColor(R.color.textWrongAnswer));
         }
+
         return score;
     }
 }
