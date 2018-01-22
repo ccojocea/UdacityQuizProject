@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Chronometer;
 import android.widget.EditText;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     //Declare variables
     Quiz mQuiz;
     TextView timerText;
-    private int countUp = 3595;
+    private int countUp = 0;
     Timer t;
 
 //    long startTime;
@@ -39,6 +41,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
+        //hide keyboard on rotation of screen
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        //this shit ain't fucking working
+        View view = getCurrentFocus();
+        EditText et9 = findViewById(R.id.q9_edit_text);
+        et9.setFocusable(false);
+        et9.setFocusableInTouchMode(false);
+        et9.setFocusable(true);
+        et9.setFocusableInTouchMode(true);
+
+
+//        if (view != null && view instanceof EditText && !view.getClass().getName().startsWith("android.webkit.")){
+//            view.clearFocus();
+//            Button button = findViewById(R.id.submit_score_check);
+//            button.requestFocus();
+//        }
 
 //        stopWatch = findViewById(R.id.chrono);
 //        startTime = SystemClock.elapsedRealtime();
@@ -63,13 +83,14 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         timerText = findViewById(R.id.main_timer_text);
                         if(countUp >= 3600){
-                            String asTextHours = (countUp/3600) + ":" + ((countUp % 3600)/60) + ":" + ((countUp % 3600)%60);
+                            String asTextHours = String.format("%02d:%02d:%02d", countUp/3600, (countUp % 3600)/60, (countUp % 3600)%60);
                             timerText.setText("Time: " + asTextHours);
                         }else if(countUp >= 60){
-                            String asTextMinutes = (countUp/60) + ":" + (countUp % 60);
+                            String asTextMinutes = String.format("%02d:%02d", countUp/60, countUp % 60);
                             timerText.setText("Time: " + asTextMinutes);
                         } else {
-                            timerText.setText("Time: " + countUp);
+                            String asTextSeconds = String.format("%02d", countUp);
+                            timerText.setText("Time: " + asTextSeconds);
                         }
                         countUp += 1;
                     }
@@ -85,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         View view = getCurrentFocus();
         if (view != null && (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) && view instanceof EditText && !view.getClass().getName().startsWith("android.webkit.")) {
-            int scrcoords[] = new int[2];
-            view.getLocationOnScreen(scrcoords);
-            float x = ev.getRawX() + view.getLeft() - scrcoords[0];
-            float y = ev.getRawY() + view.getTop() - scrcoords[1];
+            int screenCoordinates[] = new int[2];
+            view.getLocationOnScreen(screenCoordinates);
+            float x = ev.getRawX() + view.getLeft() - screenCoordinates[0];
+            float y = ev.getRawY() + view.getTop() - screenCoordinates[1];
             if (x < view.getLeft() || x > view.getRight() || y < view.getTop() || y > view.getBottom())
                 ((InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((this.getWindow().getDecorView().getApplicationWindowToken()), 0);
         }

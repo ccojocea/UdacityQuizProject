@@ -2,6 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -25,6 +27,14 @@
         android:textColor="@color/colorSecondaryLight"
         android:textSize="@dimen/question_font_size" />
 
+    <View
+        android:id="@+id/separator_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/main_timer_text"
+        android:background="@color/colorSecondaryDark">
+    </View>
+
     <TextView
         android:id="@+id/main_score_text"
         android:layout_width="wrap_content"
@@ -39,7 +49,7 @@
         android:id="@+id/base_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/main_timer_text"
+        android:layout_below="@id/separator_line_view"
         android:background="@color/colorPrimary">
 
         <LinearLayout
@@ -521,6 +531,7 @@
                         android:id="@+id/q9_edit_text"
                         style="@style/EditTextStyle"
                         android:hint="@string/h9" />
+
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -636,6 +647,7 @@
             </android.support.v7.widget.CardView>
 
             <Button
+                android:id="@+id/submit_score_check"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/layout_margin"
