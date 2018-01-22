@@ -5,17 +5,21 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorSecondaryLight</item>
     </style>
 
     <style name="AnswerText">
-        <!--<item name="android:fontFamily">@font/someFont</item>-->
-        <item name="android:textColor">@color/colorNormalAnswer</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/textNormalAnswer</item>
         <item name="android:background">@drawable/bg_select</item>
         <item name="android:textSize">@dimen/answer_font_size</item>
         <item name="android:layout_marginTop">8dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="QuestionText">
+        <item name="android:textColor">@color/colorSecondaryLight</item>
+        <item name="android:textSize">@dimen/question_font_size</item>
     </style>
 
     <style name="LayoutStyle">
@@ -23,4 +27,12 @@
         <item name="android:padding">@dimen/padding</item>
     </style>
 
+    <style name="EditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorSecondaryLight</item>
+        <item name="android:textColorHint">@color/colorPrimaryLight</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">text</item>
+    </style>
 </resources>

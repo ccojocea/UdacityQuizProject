@@ -18,20 +18,11 @@ public class MainActivity extends AppCompatActivity {
 
     //Declare variables
     Quiz mQuiz;
-    RadioGroup radioQuestion1;
-    RadioGroup radioQuestion2;
-    RadioGroup radioQuestion3;
-    RadioGroup radioQuestion4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-
-        radioQuestion1 = findViewById(R.id.q1_radio_group);
-        radioQuestion2 = findViewById(R.id.q2_radio_group);
-        radioQuestion3 = findViewById(R.id.q3_radio_group);
-        radioQuestion4 = findViewById(R.id.q4_radio_group);
 
         mQuiz = createQuiz();
     }
@@ -103,6 +94,11 @@ public class MainActivity extends AppCompatActivity {
     private int checkSingleQuestionAnswers(){
         int score = 0;
 
+        RadioGroup radioQuestion1 = findViewById(R.id.q1_radio_group);
+        RadioGroup radioQuestion2 = findViewById(R.id.q2_radio_group);
+        RadioGroup radioQuestion3 = findViewById(R.id.q3_radio_group);
+        RadioGroup radioQuestion4 = findViewById(R.id.q4_radio_group);
+
         int answer1 = radioQuestion1.getCheckedRadioButtonId();
         int answer2 = radioQuestion2.getCheckedRadioButtonId();
         int answer3 = radioQuestion3.getCheckedRadioButtonId();
@@ -110,31 +106,36 @@ public class MainActivity extends AppCompatActivity {
 
         RadioButton radioButton1 = radioQuestion1.findViewById(answer1);
         int index1 = radioQuestion1.indexOfChild(radioButton1);
-        Log.i("First question: ", "" + index1);
         if(mQuiz.singleAnswerQuestions.get(0).validateAnswer(++index1)){
             score++;
         }
 
         RadioButton radioButton2 = radioQuestion2.findViewById(answer2);
         int index2 = radioQuestion2.indexOfChild(radioButton2);
-        Log.i("Second question: ", "" + index2);
         if(mQuiz.singleAnswerQuestions.get(1).validateAnswer(++index2)){
             score++;
         }
 
         RadioButton radioButton3 = radioQuestion3.findViewById(answer3);
         int index3 = radioQuestion3.indexOfChild(radioButton3);
-        Log.i("Third question: ", "" + index3);
         if(mQuiz.singleAnswerQuestions.get(2).validateAnswer(++index3)){
             score++;
         }
 
         RadioButton radioButton4 = radioQuestion4.findViewById(answer4);
         int index4 = radioQuestion4.indexOfChild(radioButton4);
-        Log.i("Fourth question: ", "" + index4);
         if(mQuiz.singleAnswerQuestions.get(3).validateAnswer(++index4)){
             score++;
         }
+
+        RadioButton correctRadioButton1 = findViewById(R.id.q1_a3_radio_button);
+        correctRadioButton1.setBackgroundColor(getResources().getColor(R.color.textCorrectAnswer));
+        RadioButton correctRadioButton2 = findViewById(R.id.q2_a2_radio_button);
+        correctRadioButton2.setBackgroundColor(getResources().getColor(R.color.textCorrectAnswer));
+        RadioButton correctRadioButton3 = findViewById(R.id.q3_a4_radio_button);
+        correctRadioButton3.setBackgroundColor(getResources().getColor(R.color.textCorrectAnswer));
+        RadioButton correctRadioButton4 = findViewById(R.id.q4_a1_radio_button);
+        correctRadioButton4.setBackgroundColor(getResources().getColor(R.color.textCorrectAnswer));
 
         return score;
     }

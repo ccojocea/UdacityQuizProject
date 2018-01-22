@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#303F9F</color>
-    <color name="colorPrimaryDark">#102027</color>
-    <color name="colorAccent">#72c2ff</color>
     <color name="ic_launcher_background">#000542</color>
 
-    <color name="colorNormalAnswer">@android:color/black</color>
-    <color name="colorCorrectAnswer">#00ff00</color>
-    <color name="colorWrongAnswer">#FF4081</color>
+    <color name="colorPrimary">#37474f</color>
+    <color name="colorPrimaryDark">#102027</color>
+    <color name="colorPrimaryLight">#62727b</color>
+
+    <color name="colorAccent">#ef6c00</color>
+    <color name="colorSecondary">#ef6c00</color>
+    <color name="colorSecondaryDark">#b53d00</color>
+    <color name="colorSecondaryLight">#ff9d3f</color>
+
+    <color name="textOnPrimary">#ffffff</color>
+    <color name="textOnSecondary">#000000</color>
+
+    <color name="textNormalAnswer">@android:color/black</color>
+    <color name="textCorrectAnswer">#00ff00</color>
+    <color name="textWrongAnswer">#FF4081</color>
+
+
+    <!--<color name="colorBGCardView">#FF4081</color>-->
+
+    <!--<color name="compound_one">#D4EDF7</color>-->
+    <!--<color name="compound_two">#347C98</color>-->
+    <!--<color name="compound_three">#FC9803</color>-->
+    <!--<color name="compound_four">#BABABA</color>-->
+    <!--<color name="compound_five">#110934</color>-->
+
+    <!--<color name="complementary_one">#89C8E1</color>-->
+    <!--<color name="complementary_two">#40768C</color>-->
+    <!--<color name="complementary_three">#E6641E</color>-->
+    <!--<color name="complementary_four">#8E3C10</color>-->
+    <!--<color name="complementary_five">#341809</color>-->
 </resources>
