@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/base_scroll_view"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
@@ -11,6 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cardview_question1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="100dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/single_answer"/>
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:layout_width="match_parent"
@@ -32,82 +47,89 @@
 
             <RadioButton
                 android:id="@+id/q1_a1_radio_button"
+                style="@style/AnswerText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/a11"
-                style="@style/AnswerText"/>
+                android:text="@string/a11" />
 
             <RadioButton
                 android:id="@+id/q1_a2_radio_button"
+                style="@style/AnswerText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/a12"
-                style="@style/AnswerText" />
+                android:text="@string/a12" />
 
             <RadioButton
                 android:id="@+id/q1_a3_radio_button"
+                style="@style/AnswerText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/a13"
-                style="@style/AnswerText"
-                 />
+                android:text="@string/a13" />
 
             <RadioButton
                 android:id="@+id/q1_a4_radio_button"
+                style="@style/AnswerText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/a14"
-                style="@style/AnswerText"
-                 />
+                android:text="@string/a14" />
 
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/question2_text"
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cardview_question2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/q2"
-            android:textSize="@dimen/question_font_size" />
+            android:elevation="100dp">
 
-        <RadioGroup
-            android:id="@+id/q2_radio_group"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/q2_a1_radio_button"
+            <TextView
+                android:id="@+id/question2_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/a21"
-                style="@style/AnswerText"
-                 />
+                android:text="@string/q2"
+                android:textSize="@dimen/question_font_size" />
 
-            <RadioButton
-                android:id="@+id/q2_a2_radio_button"
+            <RadioGroup
+                android:id="@+id/q2_radio_group"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/a22"
-                style="@style/AnswerText"
-                 />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/q2_a3_radio_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/a23"
-                style="@style/AnswerText"
-                 />
+                <RadioButton
+                    android:id="@+id/q2_a1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/a21"
+                    style="@style/AnswerText"
+                    />
 
-            <RadioButton
-                android:id="@+id/q2_a4_radio_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/a24"
-                style="@style/AnswerText"
-                 />
+                <RadioButton
+                    android:id="@+id/q2_a2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/a22"
+                    style="@style/AnswerText"
+                    />
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/q2_a3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/a23"
+                    style="@style/AnswerText"
+                    />
+
+                <RadioButton
+                    android:id="@+id/q2_a4_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/a24"
+                    style="@style/AnswerText"
+                    />
+
+            </RadioGroup>
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:id="@+id/question3_text"

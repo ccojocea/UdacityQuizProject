@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#303F9F</color>
     <color name="colorPrimaryDark">#102027</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#72c2ff</color>
     <color name="ic_launcher_background">#000542</color>
 
     <color name="colorNormalAnswer">@android:color/black</color>

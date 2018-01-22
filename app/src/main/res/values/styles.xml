@@ -18,4 +18,9 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="LayoutStyle">
+        <item name="android:background">@drawable/bg_lin_layout</item>
+        <item name="android:padding">@dimen/padding</item>
+    </style>
+
 </resources>
