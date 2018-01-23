@@ -3,6 +3,7 @@ package com.example.android.ccojocea.javaquiz;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,7 +27,7 @@ import java.util.TimerTask;
  * Created by ccojo on 1/19/2018.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ConfirmSubmitDialogFragment.ConfirmDialogListener{
 
     //Declare variables
     String score = "";
@@ -313,9 +314,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Method called when the check your answers button is pressed.
+     * It should open a confirmation dialog
+     * @param view
+     */
+    public void checkAnswers(View view) {
+        //to do
+        //add method to kill soft input when this is called
+
+        String message;
+        if (verifyCheckedAnswers() == 12) {
+            message = getString(R.string.dialog_number_of_questions_tv_none);
+        } else if (verifyCheckedAnswers() == 0) {
+            message = getString(R.string.dialog_number_of_questions_tv_all);
+        } else if (verifyCheckedAnswers() == 1) {
+            message = getString(R.string.dialog_number_of_questions_tv_one);
+        } else {
+            message = getString(R.string.dialog_number_of_questions_tv_some, verifyCheckedAnswers());
+        }
+
+        ConfirmSubmitDialogFragment csdf = new ConfirmSubmitDialogFragment().newInstance(message);
+        csdf.show(getSupportFragmentManager(), "Confirm Dialog");
+    }
+
+    /**
      * Check all answers and display the result in a Toast message.
      */
-    public void checkAnswers(View view){
+    public void checkYourAnswers(){
         readArray = true;
         float scoreFloat = checkSingleQuestionAnswers(readArray) + checkMultipleQuestionAnswers(readArray) + checkEditedQuestionAnswers();
         int scoreInt = (int) scoreFloat;
@@ -556,5 +581,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return numberOfQuestions;
+    }
+
+    @Override
+    public void submitResults() {
+        checkYourAnswers();
     }
 }

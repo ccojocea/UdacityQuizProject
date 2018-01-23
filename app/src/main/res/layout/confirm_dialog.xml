@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_curved_dialog"
+    android:padding="@dimen/padding">
+
+    <TextView
+        android:id="@+id/dialog_confirm_message_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_message"
+        android:textColor="@color/colorSecondaryLight"
+        android:textSize="@dimen/answer_font_size"
+        android:layout_marginBottom="@dimen/layout_margin"/>
+
+    <TextView
+        android:id="@+id/dialog_number_of_questions_tv"
+        android:layout_below="@id/dialog_confirm_message_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorSecondaryLight"
+        android:textSize="@dimen/answer_font_size"
+        android:text=""
+        android:layout_marginBottom="@dimen/layout_margin"/>
+
+    <LinearLayout
+        android:layout_below="@id/dialog_number_of_questions_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/dialog_negative_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/layout_margin_xs"
+            android:text="@string/negative_button"
+            android:textSize="@dimen/answer_font_size"
+            android:background="@drawable/bg_select"
+            android:textAllCaps="false"
+            android:shadowColor="@color/colorSecondaryDark"
+            android:shadowRadius="4"
+            android:shadowDx="2"
+            android:shadowDy="2"/>
+
+        <Button
+            android:id="@+id/dialog_positive_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/layout_margin_xs"
+            android:text="@string/positive_button"
+            android:textSize="@dimen/answer_font_size"
+            android:background="@drawable/bg_select"
+            android:textAllCaps="false"
+            android:shadowColor="@color/colorSecondaryDark"
+            android:shadowRadius="4"
+            android:shadowDx="2"
+            android:shadowDy="2"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

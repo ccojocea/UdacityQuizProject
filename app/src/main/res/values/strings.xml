@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Quiz</string>
     <string name="java_quiz">Java Quiz</string>
     <string name="xml_quiz">XML Quiz</string>
@@ -15,4 +15,12 @@
     <string name="timer_text">Time:</string>
     <string name="quiz_over">The quiz is over! You may scroll up and down to see the correct answers.</string>
     <string name="score">Score:</string>
+
+    <string name="confirm_message">Are you sure you want to submit your answers? The quiz will end!</string>
+    <string name="dialog_number_of_questions_tv_none">You have not answered any questions.</string>
+    <string name="dialog_number_of_questions_tv_some">You have not answered <xliff:g id="questions" example="2">%d</xliff:g> questions.</string>
+    <string name="dialog_number_of_questions_tv_one">You have not answered one question.</string>
+    <string name="dialog_number_of_questions_tv_all">You have answered all questions.</string>
+    <string name="positive_button">Ok</string>
+    <string name="negative_button">Cancel</string>
 </resources>
