@@ -3,7 +3,6 @@ package com.example.android.ccojocea.javaquiz;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -319,8 +318,16 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
      * @param view
      */
     public void checkAnswers(View view) {
-        //to do
-        //add method to kill soft input when this is called
+        //hide keyboard if it's open while the button is pressed
+        View viewK = this.getCurrentFocus();
+        if (viewK != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            try {
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            } catch (Exception e) {
+                //do nothing :))
+            }
+        }
 
         String message;
         if (verifyCheckedAnswers() == 12) {
