@@ -32,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
     String score = "";
     int countUp = 0;
     boolean isOver = false;
+    boolean readArray;
+
+    boolean etAnswer9;
+    boolean etAnswer10;
+    boolean etAnswer11;
+    boolean etAnswer12;
 
     Quiz mQuiz;
 
@@ -41,23 +47,85 @@ public class MainActivity extends AppCompatActivity {
     Toast toastMessager;
     LinearLayout layoutMask;
     TextView scoreView;
+    TextView textView9;
+    TextView textView10;
+    TextView textView11;
+    TextView textView12;
+
+    //Views related to answers:
+    //Single Answer Views
+    RadioGroup radioQuestion1;
+    RadioGroup radioQuestion2;
+    RadioGroup radioQuestion3;
+    RadioGroup radioQuestion4;
+
+    //Multiple Answer Views
+    CheckBox checkBox51;
+    CheckBox checkBox52;
+    CheckBox checkBox53;
+    CheckBox checkBox54;
+    CheckBox checkBox61;
+    CheckBox checkBox62;
+    CheckBox checkBox63;
+    CheckBox checkBox64;
+    CheckBox checkBox71;
+    CheckBox checkBox72;
+    CheckBox checkBox73;
+    CheckBox checkBox74;
+    CheckBox checkBox81;
+    CheckBox checkBox82;
+    CheckBox checkBox83;
+    CheckBox checkBox84;
+
+    //EditText Views - initialised in onCreate
+    EditText editText9;
+    EditText editText10;
+    EditText editText11;
+    EditText editText12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+        mQuiz = createQuiz();
+
         layoutMask = findViewById(R.id.image_mask);
         scoreButton = findViewById(R.id.submit_score_check);
         scoreView = findViewById(R.id.main_score_text);
+        textView9 = findViewById(R.id.text_view_q9);
+        textView10 = findViewById(R.id.text_view_q10);
+        textView11 = findViewById(R.id.text_view_q11);
+        textView12 = findViewById(R.id.text_view_q12);
+        radioQuestion1 = findViewById(R.id.q1_radio_group);
+        radioQuestion2 = findViewById(R.id.q2_radio_group);
+        radioQuestion3 = findViewById(R.id.q3_radio_group);
+        radioQuestion4 = findViewById(R.id.q4_radio_group);
+        //Find each checkbox
+        checkBox51 = findViewById(R.id.q5_a1_checkbox);
+        checkBox52 = findViewById(R.id.q5_a2_checkbox);
+        checkBox53 = findViewById(R.id.q5_a3_checkbox);
+        checkBox54 = findViewById(R.id.q5_a4_checkbox);
+        checkBox61 = findViewById(R.id.q6_a1_checkbox);
+        checkBox62 = findViewById(R.id.q6_a2_checkbox);
+        checkBox63 = findViewById(R.id.q6_a3_checkbox);
+        checkBox64 = findViewById(R.id.q6_a4_checkbox);
+        checkBox71 = findViewById(R.id.q7_a1_checkbox);
+        checkBox72 = findViewById(R.id.q7_a2_checkbox);
+        checkBox73 = findViewById(R.id.q7_a3_checkbox);
+        checkBox74 = findViewById(R.id.q7_a4_checkbox);
+        checkBox81 = findViewById(R.id.q8_a1_checkbox);
+        checkBox82 = findViewById(R.id.q8_a2_checkbox);
+        checkBox83 = findViewById(R.id.q8_a3_checkbox);
+        checkBox84 = findViewById(R.id.q8_a4_checkbox);
 
         //hide keyboard on rotation of screen
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        final EditText editText9 = findViewById(R.id.q9_edit_text);
-        final EditText editText10 = findViewById(R.id.q10_edit_text);
-        final EditText editText11 = findViewById(R.id.q11_edit_text);
-        final EditText editText12 = findViewById(R.id.q12_edit_text);
+        editText9 = findViewById(R.id.q9_edit_text);
+        editText10 = findViewById(R.id.q10_edit_text);
+        editText11 = findViewById(R.id.q11_edit_text);
+        editText12 = findViewById(R.id.q12_edit_text);
         editText9.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -103,10 +171,30 @@ public class MainActivity extends AppCompatActivity {
             isOver = savedInstanceState.getBoolean("isOver");
             countUp = savedInstanceState.getInt("countUp");
             score = savedInstanceState.getString("score");
+            etAnswer9 = savedInstanceState.getBoolean("etAnswer9");
+            etAnswer10 = savedInstanceState.getBoolean("etAnswer10");
+            etAnswer11 = savedInstanceState.getBoolean("etAnswer11");
+            etAnswer12 = savedInstanceState.getBoolean("etAnswer12");
         }
         if(isOver){
             endMethod();
             displayTimerText();
+            if(etAnswer9){
+                textView9.setText(getString(R.string.edited_answer_correct));
+                editText9.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+            }
+            if(etAnswer10){
+                textView10.setText(getString(R.string.edited_answer_correct));
+                editText10.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+            }
+            if(etAnswer11){
+                textView11.setText(getString(R.string.edited_answer_correct));
+                editText11.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+            }
+            if(etAnswer12){
+                textView12.setText(getString(R.string.edited_answer_correct));
+                editText12.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+            }
         } else {
             t = new Timer();
             t.scheduleAtFixedRate(new TimerTask() {
@@ -123,7 +211,6 @@ public class MainActivity extends AppCompatActivity {
             }, 0, 1000);
         }
 
-        mQuiz = createQuiz();
         setHeight();
     }
 
@@ -165,6 +252,10 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt("countUp", countUp);
         outState.putString("score", score);
         outState.putBoolean("isOver", isOver);
+        outState.putBoolean("etAnswer9", etAnswer9);
+        outState.putBoolean("etAnswer10", etAnswer10);
+        outState.putBoolean("etAnswer11", etAnswer11);
+        outState.putBoolean("etAnswer12", etAnswer12);
     }
 
     @Override
@@ -225,7 +316,8 @@ public class MainActivity extends AppCompatActivity {
      * Check all answers and display the result in a Toast message.
      */
     public void checkAnswers(View view){
-        float scoreFloat = checkSingleQuestionAnswers() + checkMultipleQuestionAnswers() + checkEditedQuestionAnswers();
+        readArray = true;
+        float scoreFloat = checkSingleQuestionAnswers(readArray) + checkMultipleQuestionAnswers(readArray) + checkEditedQuestionAnswers();
         int scoreInt = (int) scoreFloat;
         String toastMessage;
 
@@ -267,47 +359,50 @@ public class MainActivity extends AppCompatActivity {
         layoutMask.setVisibility(View.VISIBLE);
         scoreButton.setEnabled(false);
         isOver = true;
+
+        //Running these each time to make sure correct answers are tagged.
+        readArray = false;
+        checkEditedQuestionAnswers();
+        checkSingleQuestionAnswers(readArray);
+        checkMultipleQuestionAnswers(readArray);
     }
 
     /**
      * Checks answers for single answer questions
      * @return score for the 4 questions with single answers - Possible: 0, 1, 2, 3, 4
      */
-    private int checkSingleQuestionAnswers(){
+    private int checkSingleQuestionAnswers(boolean readArray){
         int score = 0;
-
-        RadioGroup radioQuestion1 = findViewById(R.id.q1_radio_group);
-        RadioGroup radioQuestion2 = findViewById(R.id.q2_radio_group);
-        RadioGroup radioQuestion3 = findViewById(R.id.q3_radio_group);
-        RadioGroup radioQuestion4 = findViewById(R.id.q4_radio_group);
 
         int answer1 = radioQuestion1.getCheckedRadioButtonId();
         int answer2 = radioQuestion2.getCheckedRadioButtonId();
         int answer3 = radioQuestion3.getCheckedRadioButtonId();
         int answer4 = radioQuestion4.getCheckedRadioButtonId();
 
-        RadioButton radioButton1 = radioQuestion1.findViewById(answer1);
-        int index1 = radioQuestion1.indexOfChild(radioButton1);
-        if(mQuiz.singleAnswerQuestions.get(0).validateAnswer(++index1)){
-            score++;
-        }
+        if(readArray){
+            RadioButton radioButton1 = radioQuestion1.findViewById(answer1);
+            int index1 = radioQuestion1.indexOfChild(radioButton1);
+            if(mQuiz.singleAnswerQuestions.get(0).validateAnswer(++index1)){
+                score++;
+            }
 
-        RadioButton radioButton2 = radioQuestion2.findViewById(answer2);
-        int index2 = radioQuestion2.indexOfChild(radioButton2);
-        if(mQuiz.singleAnswerQuestions.get(1).validateAnswer(++index2)){
-            score++;
-        }
+            RadioButton radioButton2 = radioQuestion2.findViewById(answer2);
+            int index2 = radioQuestion2.indexOfChild(radioButton2);
+            if(mQuiz.singleAnswerQuestions.get(1).validateAnswer(++index2)){
+                score++;
+            }
 
-        RadioButton radioButton3 = radioQuestion3.findViewById(answer3);
-        int index3 = radioQuestion3.indexOfChild(radioButton3);
-        if(mQuiz.singleAnswerQuestions.get(2).validateAnswer(++index3)){
-            score++;
-        }
+            RadioButton radioButton3 = radioQuestion3.findViewById(answer3);
+            int index3 = radioQuestion3.indexOfChild(radioButton3);
+            if(mQuiz.singleAnswerQuestions.get(2).validateAnswer(++index3)){
+                score++;
+            }
 
-        RadioButton radioButton4 = radioQuestion4.findViewById(answer4);
-        int index4 = radioQuestion4.indexOfChild(radioButton4);
-        if(mQuiz.singleAnswerQuestions.get(3).validateAnswer(++index4)){
-            score++;
+            RadioButton radioButton4 = radioQuestion4.findViewById(answer4);
+            int index4 = radioQuestion4.indexOfChild(radioButton4);
+            if(mQuiz.singleAnswerQuestions.get(3).validateAnswer(++index4)){
+                score++;
+            }
         }
 
         //change color of correct radio button answers to green
@@ -328,39 +423,24 @@ public class MainActivity extends AppCompatActivity {
      * @return score for the 4 questions with multiple answers - Possible: 0, 1, 2, 3, 4, 0.5, 1.5, 2.5, 3.5
      * Max value per question is 1, can still get 0.5 points for 1 correct answer!
      */
-    private float checkMultipleQuestionAnswers(){
+    private float checkMultipleQuestionAnswers(boolean readArray){
         float score = 0.0f;
 
-        //Find each checkbox, change color of correct answer checkboxes to reflect their state
-        CheckBox checkBox51 = findViewById(R.id.q5_a1_checkbox);
-        CheckBox checkBox52 = findViewById(R.id.q5_a2_checkbox);
         checkBox52.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
-        CheckBox checkBox53 = findViewById(R.id.q5_a3_checkbox);
-        CheckBox checkBox54 = findViewById(R.id.q5_a4_checkbox);
         checkBox54.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
-        CheckBox checkBox61 = findViewById(R.id.q6_a1_checkbox);
         checkBox61.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
-        CheckBox checkBox62 = findViewById(R.id.q6_a2_checkbox);
-        CheckBox checkBox63 = findViewById(R.id.q6_a3_checkbox);
         checkBox63.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
-        CheckBox checkBox64 = findViewById(R.id.q6_a4_checkbox);
-        CheckBox checkBox71 = findViewById(R.id.q7_a1_checkbox);
-        CheckBox checkBox72 = findViewById(R.id.q7_a2_checkbox);
-        CheckBox checkBox73 = findViewById(R.id.q7_a3_checkbox);
         checkBox73.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
-        CheckBox checkBox74 = findViewById(R.id.q7_a4_checkbox);
         checkBox74.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
-        CheckBox checkBox81 = findViewById(R.id.q8_a1_checkbox);
-        CheckBox checkBox82 = findViewById(R.id.q8_a2_checkbox);
         checkBox82.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
-        CheckBox checkBox83 = findViewById(R.id.q8_a3_checkbox);
         checkBox83.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
-        CheckBox checkBox84 = findViewById(R.id.q8_a4_checkbox);
 
-        score += mQuiz.multipleAnswerQuestions.get(0).validateAnswer(checkBox51.isChecked(), checkBox52.isChecked(), checkBox53.isChecked(), checkBox54.isChecked());
-        score += mQuiz.multipleAnswerQuestions.get(1).validateAnswer(checkBox61.isChecked(), checkBox62.isChecked(), checkBox63.isChecked(), checkBox64.isChecked());
-        score += mQuiz.multipleAnswerQuestions.get(2).validateAnswer(checkBox71.isChecked(), checkBox72.isChecked(), checkBox73.isChecked(), checkBox74.isChecked());
-        score += mQuiz.multipleAnswerQuestions.get(3).validateAnswer(checkBox81.isChecked(), checkBox82.isChecked(), checkBox83.isChecked(), checkBox84.isChecked());
+        if(readArray){
+            score += mQuiz.multipleAnswerQuestions.get(0).validateAnswer(checkBox51.isChecked(), checkBox52.isChecked(), checkBox53.isChecked(), checkBox54.isChecked());
+            score += mQuiz.multipleAnswerQuestions.get(1).validateAnswer(checkBox61.isChecked(), checkBox62.isChecked(), checkBox63.isChecked(), checkBox64.isChecked());
+            score += mQuiz.multipleAnswerQuestions.get(2).validateAnswer(checkBox71.isChecked(), checkBox72.isChecked(), checkBox73.isChecked(), checkBox74.isChecked());
+            score += mQuiz.multipleAnswerQuestions.get(3).validateAnswer(checkBox81.isChecked(), checkBox82.isChecked(), checkBox83.isChecked(), checkBox84.isChecked());
+        }
 
         return score;
     }
@@ -377,13 +457,9 @@ public class MainActivity extends AppCompatActivity {
         EditText editText11 = findViewById(R.id.q11_edit_text);
         EditText editText12 = findViewById(R.id.q12_edit_text);
 
-        TextView textView9 = findViewById(R.id.text_view_q9);
-        TextView textView10 = findViewById(R.id.text_view_q10);
-        TextView textView11 = findViewById(R.id.text_view_q11);
-        TextView textView12 = findViewById(R.id.text_view_q12);
-
         if(mQuiz.editedAnswerQuestions.get(0).validateAnswer(editText9.getText().toString())){
             score++;
+            etAnswer9 = true;
             textView9.setText(getString(R.string.edited_answer_correct));
             editText9.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
         }else{
@@ -392,6 +468,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(mQuiz.editedAnswerQuestions.get(1).validateAnswer(editText10.getText().toString())){
             score++;
+            etAnswer10 = true;
             textView10.setText(getString(R.string.edited_answer_correct));
             editText10.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
         }else{
@@ -400,6 +477,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(mQuiz.editedAnswerQuestions.get(2).validateAnswer(editText11.getText().toString())){
             score++;
+            etAnswer11 = true;
             textView11.setText(getString(R.string.edited_answer_correct));
             editText11.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
         }else{
@@ -408,6 +486,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(mQuiz.editedAnswerQuestions.get(3).validateAnswer(editText12.getText().toString())){
             score++;
+            etAnswer12 = true;
             textView12.setText(getString(R.string.edited_answer_correct));
             editText12.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
         }else{
@@ -426,5 +505,56 @@ public class MainActivity extends AppCompatActivity {
         }
         toastMessager = Toast.makeText(this, getString(R.string.quiz_over), Toast.LENGTH_LONG);
         toastMessager.show();
+    }
+
+    /**
+     * Check if the user has any question that he hasn't given any answer to.
+     */
+    private int verifyCheckedAnswers(){
+        int numberOfQuestions = 0;
+
+        //checking the 4 radiogroups to see if they are checked
+        if(radioQuestion1.getCheckedRadioButtonId() == -1){
+            numberOfQuestions++;
+        }
+        if(radioQuestion2.getCheckedRadioButtonId() == -1){
+            numberOfQuestions++;
+        }
+        if(radioQuestion3.getCheckedRadioButtonId() == -1){
+            numberOfQuestions++;
+        }
+        if(radioQuestion4.getCheckedRadioButtonId() == -1){
+            numberOfQuestions++;
+        }
+
+        //checking all checkboxes, in groups of 4, to see if each question received an answer
+        if(!checkBox51.isChecked() && !checkBox52.isChecked() && !checkBox53.isChecked() && !checkBox54.isChecked()){
+            numberOfQuestions++;
+        }
+        if(!checkBox61.isChecked() && !checkBox62.isChecked() && !checkBox63.isChecked() && !checkBox64.isChecked()){
+            numberOfQuestions++;
+        }
+        if(!checkBox71.isChecked() && !checkBox72.isChecked() && !checkBox73.isChecked() && !checkBox74.isChecked()){
+            numberOfQuestions++;
+        }
+        if(!checkBox81.isChecked() && !checkBox82.isChecked() && !checkBox83.isChecked() && !checkBox84.isChecked()){
+            numberOfQuestions++;
+        }
+
+        //checking all 4 edittexts to see if each question received an answer
+        if(editText9.getText().length() == 0){
+            numberOfQuestions++;
+        }
+        if(editText10.getText().length() == 0){
+            numberOfQuestions++;
+        }
+        if(editText11.getText().length() == 0){
+            numberOfQuestions++;
+        }
+        if(editText12.getText().length() == 0){
+            numberOfQuestions++;
+        }
+
+        return numberOfQuestions;
     }
 }
