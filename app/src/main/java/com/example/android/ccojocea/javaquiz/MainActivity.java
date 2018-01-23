@@ -2,17 +2,19 @@ package com.example.android.ccojocea.javaquiz;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.Chronometer;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -28,77 +30,152 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
 
     //Declare variables
-    Quiz mQuiz;
-    TextView timerText;
-    private int countUp = 0;
-    Timer t;
+    String score = "";
+    int countUp = 0;
+    boolean isOver = false;
 
-//    long startTime;
-//    long countUp;
-//    Chronometer stopWatch;
+    Quiz mQuiz;
+
+    Timer t;
+    TextView timerText;
+    Button scoreButton;
+    Toast toastMessager;
+    LinearLayout layoutMask;
+    TextView scoreView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+        layoutMask = findViewById(R.id.image_mask);
+        scoreButton = findViewById(R.id.submit_score_check);
+        scoreView = findViewById(R.id.main_score_text);
+
         //hide keyboard on rotation of screen
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        //this shit ain't fucking working
-        View view = getCurrentFocus();
-        EditText et9 = findViewById(R.id.q9_edit_text);
-        et9.setFocusable(false);
-        et9.setFocusableInTouchMode(false);
-        et9.setFocusable(true);
-        et9.setFocusableInTouchMode(true);
-
-
-//        if (view != null && view instanceof EditText && !view.getClass().getName().startsWith("android.webkit.")){
-//            view.clearFocus();
-//            Button button = findViewById(R.id.submit_score_check);
-//            button.requestFocus();
-//        }
-
-//        stopWatch = findViewById(R.id.chrono);
-//        startTime = SystemClock.elapsedRealtime();
-//
-//        timerText = findViewById(R.id.main_timer_text);
-//        stopWatch.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
-//            @Override
-//            public void onChronometerTick(Chronometer chronometer) {
-//                countUp = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
-//                String asText = (countUp / 60) + ":" + (countUp % 60);
-//                timerText.setText(asText);
-//            }
-//        });
-//        stopWatch.start();
-
-        t = new Timer();
-        t.scheduleAtFixedRate(new TimerTask() {
+        final EditText editText9 = findViewById(R.id.q9_edit_text);
+        final EditText editText10 = findViewById(R.id.q10_edit_text);
+        final EditText editText11 = findViewById(R.id.q11_edit_text);
+        final EditText editText12 = findViewById(R.id.q12_edit_text);
+        editText9.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        timerText = findViewById(R.id.main_timer_text);
-                        if(countUp >= 3600){
-                            String asTextHours = String.format("%02d:%02d:%02d", countUp/3600, (countUp % 3600)/60, (countUp % 3600)%60);
-                            timerText.setText("Time: " + asTextHours);
-                        }else if(countUp >= 60){
-                            String asTextMinutes = String.format("%02d:%02d", countUp/60, countUp % 60);
-                            timerText.setText("Time: " + asTextMinutes);
-                        } else {
-                            String asTextSeconds = String.format("%02d", countUp);
-                            timerText.setText("Time: " + asTextSeconds);
-                        }
-                        countUp += 1;
-                    }
-                });
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if(i== EditorInfo.IME_ACTION_DONE){
+                    editText9.clearFocus();
+                    ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((getWindow().getDecorView().getApplicationWindowToken()), 0);
+                }
+                return false;
             }
-        }, 0, 1000);
+        });
+        editText10.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if(i== EditorInfo.IME_ACTION_DONE){
+                    editText10.clearFocus();
+                    ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((getWindow().getDecorView().getApplicationWindowToken()), 0);
+                }
+                return false;
+            }
+        });
+        editText11.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if(i== EditorInfo.IME_ACTION_DONE){
+                    editText11.clearFocus();
+                    ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((getWindow().getDecorView().getApplicationWindowToken()), 0);
+                }
+                return false;
+            }
+        });
+        editText12.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if(i== EditorInfo.IME_ACTION_DONE){
+                    editText12.clearFocus();
+                    ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((getWindow().getDecorView().getApplicationWindowToken()), 0);
+                }
+                return false;
+            }
+        });
+
+        if(savedInstanceState != null){
+            isOver = savedInstanceState.getBoolean("isOver");
+            countUp = savedInstanceState.getInt("countUp");
+            score = savedInstanceState.getString("score");
+        }
+        if(isOver){
+            endMethod();
+            displayTimerText();
+        } else {
+            t = new Timer();
+            t.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            displayTimerText();
+                            countUp += 1;
+                        }
+                    });
+                }
+            }, 0, 1000);
+        }
 
         mQuiz = createQuiz();
+        setHeight();
+    }
+
+    private void setHeight(){
+        final View view = findViewById(R.id.de_aici_masuram);
+        view.getViewTreeObserver().addOnGlobalLayoutListener(
+                new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        // Layout has happened here.
+                        float topElementPosition = findViewById(R.id.de_aici_masuram).getY();
+                        float bottomElementPosition = scoreButton.getY();
+                        int bottomElementHeight = scoreButton.getMeasuredHeight();
+                        int height = (int)(bottomElementPosition-topElementPosition+bottomElementHeight);
+                        layoutMask.setMinimumHeight(height);
+                        // Don't forget to remove your listener when you are done with it.
+                        view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    }
+                });
+    }
+
+    private void displayTimerText(){
+        timerText = findViewById(R.id.main_timer_text);
+        if(countUp >= 3600){
+            String asTextHours = String.format("%02d:%02d:%02d", countUp/3600, (countUp % 3600)/60, (countUp % 3600)%60);
+            timerText.setText(getString(R.string.timer_text) + " " + asTextHours);
+        }else if(countUp >= 60){
+            String asTextMinutes = String.format("%02d:%02d", countUp/60, countUp % 60);
+            timerText.setText(getString(R.string.timer_text) + " " + asTextMinutes);
+        } else {
+            final String asTextSeconds = String.format("%d", countUp);
+            timerText.setText(getString(R.string.timer_text) + " " + asTextSeconds);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("countUp", countUp);
+        outState.putString("score", score);
+        outState.putBoolean("isOver", isOver);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        //clear focus from any EditText that might have it after rotation
+        View view = getCurrentFocus();
+        if (view != null){
+            view.clearFocus();
+        }
     }
 
     //touch anywhere on screen to close the keyboard
@@ -112,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
             float y = ev.getRawY() + view.getTop() - screenCoordinates[1];
             if (x < view.getLeft() || x > view.getRight() || y < view.getTop() || y > view.getBottom())
                 ((InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((this.getWindow().getDecorView().getApplicationWindowToken()), 0);
+            view.clearFocus();
         }
         return super.dispatchTouchEvent(ev);
     }
@@ -150,8 +228,7 @@ public class MainActivity extends AppCompatActivity {
     public void checkAnswers(View view){
         float scoreFloat = checkSingleQuestionAnswers() + checkMultipleQuestionAnswers() + checkEditedQuestionAnswers();
         int scoreInt = (int) scoreFloat;
-        String score = "";
-        String toastMessage = "";
+        String toastMessage;
 
         if (scoreFloat == Math.round(scoreFloat)){
             score += scoreInt;
@@ -168,18 +245,29 @@ public class MainActivity extends AppCompatActivity {
         } else if (scoreFloat > 1){
             toastMessage = "At least you got some right!" + " Your score is: " + score +" out of 12!";
         } else if (scoreFloat > 0) {
-            toastMessage = "At least you got one right!" + " Your score is: " + score +" out of 12!";;
+            toastMessage = "At least you got one right!" + " Your score is: " + score +" out of 12!";
         } else {
             toastMessage = "Not even one correct answer? Did you even try?";
         }
 
-        Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
+        toastMessager = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
+        toastMessager.show();
+
+        endMethod();
+
         //stop the timer
         t.cancel();
-//        stopWatch.stop();
+    }
+
+    private void endMethod(){
         //show the score in a permanent way
-        TextView scoreView = findViewById(R.id.main_score_text);
-        scoreView.setText("Score: " + score + "/" + "12");
+        scoreView.setText(getString(R.string.score) + " " + score + "/" + "12");
+
+        //make the mask layout visible
+        //disable the Check your results button
+        layoutMask.setVisibility(View.VISIBLE);
+        scoreButton.setEnabled(false);
+        isOver = true;
     }
 
     /**
@@ -294,10 +382,6 @@ public class MainActivity extends AppCompatActivity {
         TextView textView10 = findViewById(R.id.text_view_q10);
         TextView textView11 = findViewById(R.id.text_view_q11);
         TextView textView12 = findViewById(R.id.text_view_q12);
-        textView9.setVisibility(View.VISIBLE);
-        textView10.setVisibility(View.VISIBLE);
-        textView11.setVisibility(View.VISIBLE);
-        textView12.setVisibility(View.VISIBLE);
 
         if(mQuiz.editedAnswerQuestions.get(0).validateAnswer(editText9.getText().toString())){
             score++;
@@ -333,5 +417,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return score;
+    }
+
+    public void doNothingClick(View view){
+        try{
+            toastMessager.cancel();
+        } catch (Exception e){
+            //do nothing :)
+        }
+        toastMessager = Toast.makeText(this, getString(R.string.quiz_over), Toast.LENGTH_LONG);
+        toastMessager.show();
     }
 }
