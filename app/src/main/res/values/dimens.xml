@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="splash_font_size">60sp</dimen>
+    <dimen name="splash_font_size">72sp</dimen>
     <dimen name="question_font_size">24sp</dimen>
     <dimen name="answer_font_size">20sp</dimen>
     <dimen name="note_font_size">12sp</dimen>

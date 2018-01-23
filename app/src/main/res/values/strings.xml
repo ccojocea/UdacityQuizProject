@@ -13,6 +13,6 @@
     <string name="edited_answer_correct">Your answer is correct!</string>
     <string name="edited_answer_incorrect">The correct answer is: </string>
     <string name="timer_text">Time:</string>
-    <string name="quiz_over">The quiz is over! You may scroll up and down to see correct answers.</string>
+    <string name="quiz_over">The quiz is over! You may scroll up and down to see the correct answers.</string>
     <string name="score">Score:</string>
 </resources>
