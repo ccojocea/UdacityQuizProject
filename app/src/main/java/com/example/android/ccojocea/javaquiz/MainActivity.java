@@ -450,7 +450,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         endMethod();
 
         //stop the timer
-        t.cancel();
+        if (t != null) {
+            t.cancel();
+        }
 
         scrollView.fullScroll(View.FOCUS_UP);
     }
