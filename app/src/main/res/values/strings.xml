@@ -17,11 +17,21 @@
     <string name="score">Score:</string>
     <string name="restart_button">Restart Quiz</string>
 
+    <string name="toast_all">Amazing! You\'ve got a perfect 12 out of 12 score!</string>
+    <string name="toast_none">Not even one correct answer? Did you even try?</string>
+    <string name="toast_one">At least you got one right! Your score is: 1 out of 12!</string>
+    <string name="toast_few">At least you got some right! Your score is: <xliff:g id="score" example="2">%s</xliff:g> out of 12!</string>
+    <string name="toast_8">Congratulations! You\'ve got most of the questions right! Your score is: <xliff:g id="score" example="2">%s</xliff:g> out of 12!"</string>
+    <string name="toast_4">Not a great achievement but better than nothing! Your score is: <xliff:g id="score" example="2">%s</xliff:g> out of 12!</string>
+    <string name="toast_several">Congratulations! You\'ve got most of the questions right! Your score is:<xliff:g id="score" example="2">%s</xliff:g> +" out of 12!";</string>
+
     <string name="confirm_message">Are you sure you want to submit your answers? The quiz will end!</string>
     <string name="dialog_number_of_questions_tv_none">You have not answered any questions.</string>
     <string name="dialog_number_of_questions_tv_some">You have not answered <xliff:g id="questions" example="2">%d</xliff:g> questions.</string>
     <string name="dialog_number_of_questions_tv_one">You have not answered one question.</string>
     <string name="dialog_number_of_questions_tv_all">You have answered all questions.</string>
+    <string name="missed_questions">The questions you missed are:</string>
+    <string name="one_missed_question">The one you missed is question:</string>
     <string name="positive_button">Ok</string>
     <string name="negative_button">Cancel</string>
 </resources>

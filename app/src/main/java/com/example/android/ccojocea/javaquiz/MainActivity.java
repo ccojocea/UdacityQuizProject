@@ -23,7 +23,6 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -130,8 +129,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         checkBox84 = findViewById(R.id.q8_a4_checkbox);
         scrollView = findViewById(R.id.base_scroll_view);
 
-        //hide keyboard on rotation of screen
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        //hide keyboard on rotation of screen seems to not be needed.
+//        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         editText9 = findViewById(R.id.q9_edit_text);
         editText10 = findViewById(R.id.q10_edit_text);
@@ -190,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             wasPaused = savedInstanceState.getBoolean("wasPaused");
         }
 
-
+        //calculate height of UI elements to set it to the mask layout
         setHeight();
     }
 
@@ -383,23 +382,23 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
                 }
             }
 
-            message += "\n(The one you missed is question: " + unsQ.toString() + ")";
+            message += "\n" + getResources().getString(R.string.one_missed_question) + " " + unsQ.toString();
 
         } else {
             message = getString(R.string.dialog_number_of_questions_tv_some, verifyCheckedAnswers());
 
             StringBuilder unsQ = new StringBuilder();
+            String prefix = "";
             for (int i = 0; i < 12; i++) {
                 if(unansweredQuestions[i] != 0){
+                    unsQ.append(prefix);
+                    prefix = ", ";
                     unsQ.append(unansweredQuestions[i]);
                 }
             }
 
-            message += "\n(The questions you missed are: " + unsQ.toString() + ")";
-
+            message += "\n" + getResources().getString(R.string.missed_questions) + " " + unsQ.toString() + ".";
         }
-
-
 
         ConfirmSubmitDialogFragment csdf = new ConfirmSubmitDialogFragment().newInstance(message);
         csdf.show(getSupportFragmentManager(), "Confirm Dialog");
@@ -421,17 +420,17 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         }
 
         if(scoreFloat == 12){
-            toastMessage = "Amazing! You've got a perfect 12 out of 12 score!";
+            toastMessage = getResources().getString(R.string.toast_all);
         } else if (scoreFloat > 8){
-            toastMessage = "Congratulations! You've got most of the questions right!" + " Your score is: " + score +" out of 12!";
+            toastMessage = getResources().getString(R.string.toast_8, score);
         } else if (scoreFloat > 4){
-            toastMessage = "Not a great achievement but better than nothing!" + " Your score is: " + score +" out of 12!";
+            toastMessage = getResources().getString(R.string.toast_4, score);
         } else if (scoreFloat > 1){
-            toastMessage = "At least you got some right!" + " Your score is: " + score +" out of 12!";
+            toastMessage = getResources().getString(R.string.toast_few, score);
         } else if (scoreFloat > 0) {
-            toastMessage = "At least you got one right!" + " Your score is: " + score +" out of 12!";
+            toastMessage = getResources().getString(R.string.toast_one);
         } else {
-            toastMessage = "Not even one correct answer? Did you even try?";
+            toastMessage = getResources().getString(R.string.toast_none);
         }
 
         toastMessager = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
@@ -455,11 +454,23 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         scoreView.setText(getString(R.string.score) + " " + score + "/" + "12");
         //make the score blink!
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(700);
+        anim.setDuration(1000);
         anim.setStartOffset(20);
         anim.setRepeatMode(Animation.REVERSE);
         anim.setRepeatCount(Animation.INFINITE);
         scoreView.startAnimation(anim);
+
+//        //make the timer pulse
+//        Animation pulse = AnimationUtils.loadAnimation(this, R.anim.pulse);
+//        timerText.startAnimation(pulse);
+//        //make the timer change color
+//        ObjectAnimator colorAnim = ObjectAnimator.ofInt(timerText, "textColor",
+//                getResources().getColor(R.color.colorSecondaryLight), getResources().getColor(R.color.colorSecondaryDark));
+//        colorAnim.setEvaluator(new ArgbEvaluator());
+//        colorAnim.setDuration(1000);
+//        colorAnim.setRepeatMode(ValueAnimator.REVERSE);
+//        colorAnim.setRepeatCount(Animation.INFINITE);
+//        colorAnim.start();
 
         //make the mask layout visible
         //disable the Check your results button
