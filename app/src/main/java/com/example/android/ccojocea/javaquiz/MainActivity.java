@@ -230,7 +230,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     @Override
     protected void onPause() {
         super.onPause();
-        t.cancel();
+        if (t != null){
+            t.cancel();
+        }
         wasPaused = true;
     }
 
