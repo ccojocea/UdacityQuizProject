@@ -224,11 +224,13 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         setHeight();
     }
 
+    /**
+     * Dispatch onPause() to fragments.
+     */
     @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
+    protected void onPause() {
+        super.onPause();
         t.cancel();
-        Log.i("Method call", "Oh snap, it was called :(");
         wasPaused = true;
     }
 
@@ -236,6 +238,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     protected void onResume() {
         if(!isOver){
             if(wasPaused){
+                t = new Timer();
                 t.scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
@@ -270,20 +273,6 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
                         view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
-    }
-
-    private void displayTimerText(){
-        timerText = findViewById(R.id.main_timer_text);
-        if(countUp >= 3600){
-            String asTextHours = String.format("%02d:%02d:%02d", countUp/3600, (countUp % 3600)/60, (countUp % 3600)%60);
-            timerText.setText(getString(R.string.timer_text) + " " + asTextHours);
-        }else if(countUp >= 60){
-            String asTextMinutes = String.format("%02d:%02d", countUp/60, countUp % 60);
-            timerText.setText(getString(R.string.timer_text) + " " + asTextMinutes);
-        } else {
-            final String asTextSeconds = String.format("%d", countUp);
-            timerText.setText(getString(R.string.timer_text) + " " + asTextSeconds);
-        }
     }
 
     @Override
@@ -323,6 +312,23 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             view.clearFocus();
         }
         return super.dispatchTouchEvent(ev);
+    }
+
+    /**
+     * Method for sorting in what text format the timer should display
+     */
+    private void displayTimerText(){
+        timerText = findViewById(R.id.main_timer_text);
+        if(countUp >= 3600){
+            String asTextHours = String.format("%02d:%02d:%02d", countUp/3600, (countUp % 3600)/60, (countUp % 3600)%60);
+            timerText.setText(getString(R.string.timer_text) + " " + asTextHours);
+        }else if(countUp >= 60){
+            String asTextMinutes = String.format("%02d:%02d", countUp/60, countUp % 60);
+            timerText.setText(getString(R.string.timer_text) + " " + asTextMinutes);
+        } else {
+            final String asTextSeconds = String.format("%d", countUp);
+            timerText.setText(getString(R.string.timer_text) + " " + asTextSeconds);
+        }
     }
 
     /**
@@ -447,6 +453,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         scrollView.fullScroll(View.FOCUS_UP);
     }
 
+    /**
+     * This is called if the game has ended. It is also called each time the activity is recreated due to rotation if the flag for game end is true.
+     */
     private void endMethod(){
         //show the score in a permanent way
         scoreView.setText(getString(R.string.score) + " " + score + "/" + "12");
@@ -679,6 +688,10 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         checkYourAnswers();
     }
 
+    /**
+     * Called to recreate the activity from scratch after restart game is clicked (after ending the quiz)
+     * @param view
+     */
     public void restartGame(View view){
         Intent intent = getIntent();
         finish();
