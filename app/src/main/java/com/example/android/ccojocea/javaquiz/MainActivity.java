@@ -10,6 +10,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -451,6 +453,13 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     private void endMethod(){
         //show the score in a permanent way
         scoreView.setText(getString(R.string.score) + " " + score + "/" + "12");
+        //make the score blink!
+        Animation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(700);
+        anim.setStartOffset(20);
+        anim.setRepeatMode(Animation.REVERSE);
+        anim.setRepeatCount(Animation.INFINITE);
+        scoreView.startAnimation(anim);
 
         //make the mask layout visible
         //disable the Check your results button
