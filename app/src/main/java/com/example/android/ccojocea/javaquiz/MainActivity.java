@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     int countUp = 0;
     boolean isOver = false;
     boolean readArray;
+    int[] unansweredQuestions;
+    private boolean wasPaused = false;
 
     boolean etAnswer9;
     boolean etAnswer10;
@@ -181,6 +184,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             etAnswer10 = savedInstanceState.getBoolean("etAnswer10");
             etAnswer11 = savedInstanceState.getBoolean("etAnswer11");
             etAnswer12 = savedInstanceState.getBoolean("etAnswer12");
+            wasPaused = savedInstanceState.getBoolean("wasPaused");
         }
         if(isOver){
             endMethod();
@@ -218,6 +222,36 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         }
 
         setHeight();
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        t.cancel();
+        Log.i("Method call", "Oh snap, it was called :(");
+        wasPaused = true;
+    }
+
+    @Override
+    protected void onResume() {
+        if(!isOver){
+            if(wasPaused){
+                t.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                displayTimerText();
+                                countUp += 1;
+                            }
+                        });
+                    }
+                }, 0, 1000);
+                wasPaused = false;
+            }
+        }
+        super.onResume();
     }
 
     private void setHeight(){
@@ -262,6 +296,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         outState.putBoolean("etAnswer10", etAnswer10);
         outState.putBoolean("etAnswer11", etAnswer11);
         outState.putBoolean("etAnswer12", etAnswer12);
+        outState.putBoolean("wasPaused", wasPaused);
     }
 
     @Override
@@ -342,9 +377,31 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             message = getString(R.string.dialog_number_of_questions_tv_all);
         } else if (verifyCheckedAnswers() == 1) {
             message = getString(R.string.dialog_number_of_questions_tv_one);
+
+            StringBuilder unsQ = new StringBuilder();
+            for (int i = 0; i < 12; i++) {
+                if(unansweredQuestions[i] != 0){
+                    unsQ.append(unansweredQuestions[i]);
+                }
+            }
+
+            message += "\n(The one you missed is question: " + unsQ.toString() + ")";
+
         } else {
             message = getString(R.string.dialog_number_of_questions_tv_some, verifyCheckedAnswers());
+
+            StringBuilder unsQ = new StringBuilder();
+            for (int i = 0; i < 12; i++) {
+                if(unansweredQuestions[i] != 0){
+                    unsQ.append(unansweredQuestions[i]);
+                }
+            }
+
+            message += "\n(The questions you missed are: " + unsQ.toString() + ")";
+
         }
+
+
 
         ConfirmSubmitDialogFragment csdf = new ConfirmSubmitDialogFragment().newInstance(message);
         csdf.show(getSupportFragmentManager(), "Confirm Dialog");
@@ -553,48 +610,66 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
      */
     private int verifyCheckedAnswers(){
         int numberOfQuestions = 0;
+        unansweredQuestions = new int[12];
+        for (int i = 0; i < 12; i++){
+            unansweredQuestions[i] = 0;
+        }
 
         //checking the 4 radiogroups to see if they are checked
         if(radioQuestion1.getCheckedRadioButtonId() == -1){
             numberOfQuestions++;
+            unansweredQuestions[0] = 1;
         }
         if(radioQuestion2.getCheckedRadioButtonId() == -1){
             numberOfQuestions++;
+            unansweredQuestions[1] = 2;
         }
         if(radioQuestion3.getCheckedRadioButtonId() == -1){
             numberOfQuestions++;
+            unansweredQuestions[2] = 3;
         }
         if(radioQuestion4.getCheckedRadioButtonId() == -1){
             numberOfQuestions++;
+            unansweredQuestions[3] = 4;
         }
 
         //checking all checkboxes, in groups of 4, to see if each question received an answer
         if(!checkBox51.isChecked() && !checkBox52.isChecked() && !checkBox53.isChecked() && !checkBox54.isChecked()){
             numberOfQuestions++;
+            unansweredQuestions[4] = 5;
         }
         if(!checkBox61.isChecked() && !checkBox62.isChecked() && !checkBox63.isChecked() && !checkBox64.isChecked()){
             numberOfQuestions++;
+            unansweredQuestions[5] = 6;
         }
         if(!checkBox71.isChecked() && !checkBox72.isChecked() && !checkBox73.isChecked() && !checkBox74.isChecked()){
             numberOfQuestions++;
+            unansweredQuestions[6] = 7;
         }
         if(!checkBox81.isChecked() && !checkBox82.isChecked() && !checkBox83.isChecked() && !checkBox84.isChecked()){
             numberOfQuestions++;
+            unansweredQuestions[7] = 8;
         }
 
         //checking all 4 edittexts to see if each question received an answer
         if(editText9.getText().length() == 0){
             numberOfQuestions++;
+            unansweredQuestions[8] = 9;
         }
         if(editText10.getText().length() == 0){
             numberOfQuestions++;
+            unansweredQuestions[9] = 10;
         }
         if(editText11.getText().length() == 0){
             numberOfQuestions++;
+            unansweredQuestions[10] = 11;
         }
         if(editText12.getText().length() == 0){
             numberOfQuestions++;
+            unansweredQuestions[11] = 12;
         }
+
+        Log.i("THE STRING", unansweredQuestions.toString());
 
         return numberOfQuestions;
     }
