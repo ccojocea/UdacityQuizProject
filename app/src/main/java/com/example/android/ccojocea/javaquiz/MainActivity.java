@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
 
     //Declare variables
     String score = "";
-    int countUp = 0;
+    int countUp = -1;
     boolean isOver = false;
     boolean readArray;
     int[] unansweredQuestions;
@@ -176,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             }
         });
 
+        //restore variables after orientation change
         if(savedInstanceState != null){
             isOver = savedInstanceState.getBoolean("isOver");
             countUp = savedInstanceState.getInt("countUp");
@@ -186,6 +187,28 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             etAnswer12 = savedInstanceState.getBoolean("etAnswer12");
             wasPaused = savedInstanceState.getBoolean("wasPaused");
         }
+
+
+        setHeight();
+    }
+
+    /**
+     * Dispatch onPause() to fragments.
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        //stop timer during pauses
+        if (t != null){
+            t.cancel();
+        }
+        wasPaused = true;
+    }
+
+    @Override
+    protected void onResume() {
+        //timer start or end calls if quiz was finished
         if(isOver){
             endMethod();
             displayTimerText();
@@ -213,49 +236,14 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            displayTimerText();
                             countUp += 1;
+                            displayTimerText();
                         }
                     });
                 }
             }, 0, 1000);
         }
 
-        setHeight();
-    }
-
-    /**
-     * Dispatch onPause() to fragments.
-     */
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (t != null){
-            t.cancel();
-        }
-        wasPaused = true;
-    }
-
-    @Override
-    protected void onResume() {
-        if(!isOver){
-            if(wasPaused){
-                t = new Timer();
-                t.scheduleAtFixedRate(new TimerTask() {
-                    @Override
-                    public void run() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                displayTimerText();
-                                countUp += 1;
-                            }
-                        });
-                    }
-                }, 0, 1000);
-                wasPaused = false;
-            }
-        }
         super.onResume();
     }
 
