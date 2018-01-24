@@ -45,6 +45,22 @@
         android:textColor="@color/colorSecondaryLight"
         android:textSize="@dimen/question_font_size" />
 
+    <Button
+        android:id="@+id/btn_restart"
+        android:layout_below="@id/separator_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:onClick="restartGame"
+        android:text="@string/restart_button"
+        android:textSize="@dimen/answer_font_size"
+        android:background="@drawable/bg_select"
+        android:visibility="gone"
+        android:shadowColor="@color/colorSecondaryDark"
+        android:shadowRadius="4"
+        android:shadowDx="2"
+        android:shadowDy="2"/>
+
     <ScrollView
         android:id="@+id/base_scroll_view"
         android:layout_width="match_parent"
@@ -54,7 +70,7 @@
         android:background="@color/colorPrimary">
 
         <RelativeLayout
-            android:id="@+id/de_aici_masuram"
+            android:id="@+id/top_element"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

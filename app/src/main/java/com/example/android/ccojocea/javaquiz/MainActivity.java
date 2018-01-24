@@ -1,11 +1,9 @@
 package com.example.android.ccojocea.javaquiz;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +17,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     Timer t;
     TextView timerText;
     Button scoreButton;
+    Button restartButton;
     Toast toastMessager;
     LinearLayout layoutMask;
     TextView scoreView;
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     TextView textView10;
     TextView textView11;
     TextView textView12;
+    ScrollView scrollView;
 
     //Views related to answers:
     //Single Answer Views
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         mQuiz = createQuiz();
 
         layoutMask = findViewById(R.id.image_mask);
+        restartButton = findViewById(R.id.btn_restart);
         scoreButton = findViewById(R.id.submit_score_check);
         scoreView = findViewById(R.id.main_score_text);
         textView9 = findViewById(R.id.text_view_q9);
@@ -121,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         checkBox82 = findViewById(R.id.q8_a2_checkbox);
         checkBox83 = findViewById(R.id.q8_a3_checkbox);
         checkBox84 = findViewById(R.id.q8_a4_checkbox);
+        scrollView = findViewById(R.id.base_scroll_view);
 
         //hide keyboard on rotation of screen
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -218,13 +221,13 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     }
 
     private void setHeight(){
-        final View view = findViewById(R.id.de_aici_masuram);
+        final View view = findViewById(R.id.top_element);
         view.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
                         // Layout has happened here.
-                        float topElementPosition = findViewById(R.id.de_aici_masuram).getY();
+                        float topElementPosition = findViewById(R.id.top_element).getY();
                         float bottomElementPosition = scoreButton.getY();
                         int bottomElementHeight = scoreButton.getMeasuredHeight();
                         int height = (int)(bottomElementPosition-topElementPosition+bottomElementHeight);
@@ -383,6 +386,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
 
         //stop the timer
         t.cancel();
+
+        scrollView.fullScroll(View.FOCUS_UP);
     }
 
     private void endMethod(){
@@ -394,6 +399,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         layoutMask.setVisibility(View.VISIBLE);
         scoreButton.setEnabled(false);
         isOver = true;
+        restartButton.setVisibility(View.VISIBLE);
 
         //Running these each time to make sure correct answers are tagged.
         readArray = false;
@@ -596,5 +602,11 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     @Override
     public void submitResults() {
         checkYourAnswers();
+    }
+
+    public void restartGame(View view){
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 }
