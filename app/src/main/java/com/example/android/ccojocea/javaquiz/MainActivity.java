@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.inputmethod.EditorInfo;
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+        //instantiate the quiz
         mQuiz = createQuiz();
 
         layoutMask = findViewById(R.id.image_mask);
@@ -132,9 +134,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         //the base scrollview
         scrollView = findViewById(R.id.base_scroll_view);
 
-        //hide keyboard on rotation of screen - seems to not be needed due to the focusable/focusableInTouchMode attributes of the base container in the layout.
-//        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
+        //hide keyboard on rotation of screen - seems to not be needed due to the focusable/focusableInTouchMode attributes of the base container in the layout. left it here for future reference
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         //following code removes focus from edittext after the user inputs his answer or closes the keyboard
         //also initialises the 4 edittext views which are used in other areas of the code
         editText9 = findViewById(R.id.q9_edit_text);
@@ -366,6 +367,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
 
     /**
      * Method called when the check your answers button is pressed.
+     * It creates the message to be sent to the confirmation dialog
      * It should open a confirmation dialog
      * @param view
      */
@@ -377,7 +379,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             try {
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             } catch (Exception e) {
-                //do nothing :))
+                //do nothing :)
             }
         }
 
@@ -414,6 +416,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             message += "\n" + getResources().getString(R.string.missed_questions) + " " + unsQ.toString() + ".";
         }
 
+        //create and show the dialog
         ConfirmSubmitDialogFragment csdf = new ConfirmSubmitDialogFragment().newInstance(message);
         csdf.show(getSupportFragmentManager(), "Confirm Dialog");
     }
@@ -434,6 +437,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             score += scoreFloat;
         }
 
+        //choose what message to show based on score
+        //static messages for 0, 1 and 12 questions answered. more dynamic for the rest (using xliff in strings.xml)
         if(scoreFloat == 12){
             toastMessage = getResources().getString(R.string.toast_all);
         } else if (scoreFloat > 8){
@@ -448,9 +453,11 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             toastMessage = getResources().getString(R.string.toast_none);
         }
 
+        //show the end quiz toast
         quizToast = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
         quizToast.show();
 
+        //call the end quiz method
         endMethod();
 
         //stop the timer
@@ -475,18 +482,6 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         anim.setRepeatCount(Animation.INFINITE);
         scoreView.startAnimation(anim);
 
-//        //make the timer pulse
-//        Animation pulse = AnimationUtils.loadAnimation(this, R.anim.pulse);
-//        timerText.startAnimation(pulse);
-//        //make the timer change color
-//        ObjectAnimator colorAnim = ObjectAnimator.ofInt(timerText, "textColor",
-//                getResources().getColor(R.color.colorSecondaryLight), getResources().getColor(R.color.colorSecondaryDark));
-//        colorAnim.setEvaluator(new ArgbEvaluator());
-//        colorAnim.setDuration(1000);
-//        colorAnim.setRepeatMode(ValueAnimator.REVERSE);
-//        colorAnim.setRepeatCount(Animation.INFINITE);
-//        colorAnim.start();
-
         //make the mask layout visible
         //disable the Check your results button
         layoutMask.setVisibility(View.VISIBLE);
@@ -494,8 +489,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         isOver = true;
         restartButton.setVisibility(View.VISIBLE);
 
-        //Running these each time to make sure correct answers are tagged.
+
         readArray = false;
+        //Running these each time to make sure correct answers are tagged.
         checkEditedQuestionAnswers();
         checkSingleQuestionAnswers(readArray);
         checkMultipleQuestionAnswers(readArray);
@@ -631,6 +627,11 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         return score;
     }
 
+    /**
+     * Create toast when the layout mask is visible to inform the user
+     * Cancel any previous toast if this is called during this time
+     * @param view
+     */
     public void doNothingClick(View view){
         if(quizToast != null){
             quizToast.cancel();
