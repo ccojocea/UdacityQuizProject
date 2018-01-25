@@ -30,16 +30,17 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements ConfirmSubmitDialogFragment.ConfirmDialogListener{
 
-    //Declare variables
+    //score as string to save the value of either an int or a float in regards to score
     String score = "";
+    //variable used by the timer
     int countUp = -1;
+    //used to know if the quiz was ended for orientation change purposes
     boolean isOver = false;
     //boolean to know if the Quiz has been instantiated and it's safe to read from the arrays
     boolean readArray;
     //save all unanswered questions into an array
     int[] unansweredQuestions;
-
-
+    //used to store if the correct answer was found for the 4 edittext questions, again for orientation change purposes
     boolean etAnswer9;
     boolean etAnswer10;
     boolean etAnswer11;
@@ -48,17 +49,18 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     Quiz mQuiz;
 
     Timer t;
-    TextView timerText;
+
+    ScrollView scrollView;
+    LinearLayout layoutMask;
     Button scoreButton;
     Button restartButton;
-    Toast toastMessager;
-    LinearLayout layoutMask;
+    TextView timerText;
     TextView scoreView;
     TextView textView9;
     TextView textView10;
     TextView textView11;
     TextView textView12;
-    ScrollView scrollView;
+    Toast quizToast;
 
     //Views related to answers:
     //Single Answer Views
@@ -66,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     RadioGroup radioQuestion2;
     RadioGroup radioQuestion3;
     RadioGroup radioQuestion4;
-
     //Multiple Answer Views
     CheckBox checkBox51;
     CheckBox checkBox52;
@@ -84,8 +85,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     CheckBox checkBox82;
     CheckBox checkBox83;
     CheckBox checkBox84;
-
-    //EditText Views - initialised in onCreate
+    //EditText Views
     EditText editText9;
     EditText editText10;
     EditText editText11;
@@ -211,7 +211,6 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         if (t != null){
             t.cancel();
         }
-
     }
 
     /**
@@ -449,8 +448,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             toastMessage = getResources().getString(R.string.toast_none);
         }
 
-        toastMessager = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
-        toastMessager.show();
+        quizToast = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
+        quizToast.show();
 
         endMethod();
 
@@ -633,13 +632,11 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     }
 
     public void doNothingClick(View view){
-        try{
-            toastMessager.cancel();
-        } catch (Exception e){
-            //do nothing :)
+        if(quizToast != null){
+            quizToast.cancel();
         }
-        toastMessager = Toast.makeText(this, getString(R.string.quiz_over), Toast.LENGTH_LONG);
-        toastMessager.show();
+        quizToast = Toast.makeText(this, getString(R.string.quiz_over), Toast.LENGTH_LONG);
+        quizToast.show();
     }
 
     /**
