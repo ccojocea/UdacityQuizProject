@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.inputmethod.EditorInfo;
@@ -36,9 +34,11 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     String score = "";
     int countUp = -1;
     boolean isOver = false;
+    //boolean to know if the Quiz has been instantiated and it's safe to read from the arrays
     boolean readArray;
+    //save all unanswered questions into an array
     int[] unansweredQuestions;
-    private boolean wasPaused = false;
+
 
     boolean etAnswer9;
     boolean etAnswer10;
@@ -102,10 +102,12 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         restartButton = findViewById(R.id.btn_restart);
         scoreButton = findViewById(R.id.submit_score_check);
         scoreView = findViewById(R.id.main_score_text);
+        //find each textview for solutions on edited answer questions
         textView9 = findViewById(R.id.text_view_q9);
         textView10 = findViewById(R.id.text_view_q10);
         textView11 = findViewById(R.id.text_view_q11);
         textView12 = findViewById(R.id.text_view_q12);
+        //find each radiogroup
         radioQuestion1 = findViewById(R.id.q1_radio_group);
         radioQuestion2 = findViewById(R.id.q2_radio_group);
         radioQuestion3 = findViewById(R.id.q3_radio_group);
@@ -127,11 +129,14 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         checkBox82 = findViewById(R.id.q8_a2_checkbox);
         checkBox83 = findViewById(R.id.q8_a3_checkbox);
         checkBox84 = findViewById(R.id.q8_a4_checkbox);
+        //the base scrollview
         scrollView = findViewById(R.id.base_scroll_view);
 
-        //hide keyboard on rotation of screen seems to not be needed.
+        //hide keyboard on rotation of screen - seems to not be needed due to the focusable/focusableInTouchMode attributes of the base container in the layout.
 //        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        //following code removes focus from edittext after the user inputs his answer or closes the keyboard
+        //also initialises the 4 edittext views which are used in other areas of the code
         editText9 = findViewById(R.id.q9_edit_text);
         editText10 = findViewById(R.id.q10_edit_text);
         editText11 = findViewById(R.id.q11_edit_text);
@@ -186,14 +191,16 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             etAnswer10 = savedInstanceState.getBoolean("etAnswer10");
             etAnswer11 = savedInstanceState.getBoolean("etAnswer11");
             etAnswer12 = savedInstanceState.getBoolean("etAnswer12");
-            wasPaused = savedInstanceState.getBoolean("wasPaused");
+
         }
 
         //calculate height of UI elements to set it to the mask layout
         setHeight();
     }
 
+
     /**
+     * Override to cancel the timer whenever onPause is called
      * Dispatch onPause() to fragments.
      */
     @Override
@@ -204,9 +211,13 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         if (t != null){
             t.cancel();
         }
-        wasPaused = true;
+
     }
 
+    /**
+     * Override to start timer if it's not currently running (it starts from its previous value due to global variable countUp)
+     * Also checks if the quiz was ended to recall end methods in case of orientation change
+     */
     @Override
     protected void onResume() {
         //timer start or end calls if quiz was finished
@@ -248,6 +259,10 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         super.onResume();
     }
 
+    /**
+     * This method calculates the height for the layout mask
+     * This mask is used to block user input after the quiz has ended (apart from Restart button)
+     */
     private void setHeight(){
         final View view = findViewById(R.id.top_element);
         view.getViewTreeObserver().addOnGlobalLayoutListener(
@@ -276,7 +291,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         outState.putBoolean("etAnswer10", etAnswer10);
         outState.putBoolean("etAnswer11", etAnswer11);
         outState.putBoolean("etAnswer12", etAnswer12);
-        outState.putBoolean("wasPaused", wasPaused);
+
     }
 
     @Override
@@ -413,6 +428,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         int scoreInt = (int) scoreFloat;
         String toastMessage;
 
+        //check if the score is an integer or it has decimals
         if (scoreFloat == Math.round(scoreFloat)){
             score += scoreInt;
         } else {
@@ -690,11 +706,12 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             unansweredQuestions[11] = 12;
         }
 
-        Log.i("THE STRING", unansweredQuestions.toString());
-
         return numberOfQuestions;
     }
 
+    /**
+     * Implementation of the interface method submitResults, used for the dialog positive button
+     */
     @Override
     public void submitResults() {
         checkYourAnswers();

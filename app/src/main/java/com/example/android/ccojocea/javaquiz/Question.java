@@ -10,8 +10,4 @@ public class Question{
     Question (int id){
         this.id = id;
     }
-
-    public int getId(){
-        return this.id;
-    }
 }
