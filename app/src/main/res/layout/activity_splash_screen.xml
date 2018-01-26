@@ -8,28 +8,49 @@
     tools:context="com.example.android.ccojocea.javaquiz.SplashScreen">
 
     <ImageView
+        android:id="@+id/udacity_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/udacity600" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/udacity600"
+        android:scaleType="fitStart" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/splash_app_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="@dimen/splash_font_size"
-        android:textColor="@color/colorSecondary"
-        android:layout_centerInParent="true"
-        android:id="@+id/textView"
-        android:fontFamily="@font/shrikhand_regular"
-        android:textAllCaps="true"/>
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/java_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/java_logo_low_contrast_xxs"/>
+
+        <TextView
+            android:id="@+id/splash_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/app_name"
+            android:textSize="@dimen/splash_font_size"
+            android:textColor="@color/colorSecondary"
+            android:textAlignment="center"
+            android:fontFamily="@font/shrikhand_regular"
+            android:textAllCaps="true"/>
+
+    </LinearLayout>
 
     <TextView
+        android:id="@+id/author_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:text="by @CosminC"
+        android:text="@string/splash_author_name"
         android:textColor="@color/colorSecondaryLight"
         android:textSize="@dimen/answer_font_size"/>
 

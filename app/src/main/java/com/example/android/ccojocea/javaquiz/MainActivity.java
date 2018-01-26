@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
 
     ScrollView scrollView;
     LinearLayout layoutMask;
+    ImageView javaLogo;
     Button scoreButton;
     Button restartButton;
     TextView timerText;
@@ -104,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         restartButton = findViewById(R.id.btn_restart);
         scoreButton = findViewById(R.id.submit_score_check);
         scoreView = findViewById(R.id.main_score_text);
+        javaLogo = findViewById(R.id.java_logo);
         //find each textview for solutions on edited answer questions
         textView9 = findViewById(R.id.text_view_q9);
         textView10 = findViewById(R.id.text_view_q10);
@@ -472,6 +475,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
      * This is called if the game has ended. It is also called each time the activity is recreated due to rotation if the flag for game end is true.
      */
     private void endMethod(){
+        //hide java logo so the restart button doesn't go on top of it
+        javaLogo.setVisibility(View.INVISIBLE);
+
         //show the score in a permanent way
         scoreView.setText(getString(R.string.score) + " " + score + "/" + "12");
         //make the score blink!

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="splash_font_size">80sp</dimen>
+    <dimen name="splash_font_size">56sp</dimen>
     <dimen name="splash_font_size_xs">40sp</dimen>
     <dimen name="question_font_size">20sp</dimen>
     <dimen name="answer_font_size">16sp</dimen>
@@ -12,4 +12,6 @@
     <dimen name="layout_margin_xxs">4dp</dimen>
     <dimen name="card_view_corner_radius">12dp</dimen>
     <dimen name="card_view_elevation">8dp</dimen>
+    <dimen name="image_border">2dp</dimen>
+    <dimen name="image_padding">4dp</dimen>
 </resources>

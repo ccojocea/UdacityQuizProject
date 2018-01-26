@@ -1,7 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Quiz</string>
-    <string name="java_quiz">Java Quiz</string>
-    <string name="xml_quiz">XML Quiz</string>
+    <string name="app_name">Java Quiz</string>
     <string name="single_answer">The following questions have a single correct answer</string>
     <string name="multiple_answer">The following questions have multiple correct answers. You get points for each correct answer but you will be penalised for incorrect ones</string>
     <string name="edited_answer">Please type your answer to the following questions</string>
@@ -11,11 +9,12 @@
     <string name="h11">Please type your answer here 11</string>
     <string name="h12">Please type your answer here 12</string>
     <string name="edited_answer_correct">Your answer is correct!</string>
-    <string name="edited_answer_incorrect">The correct answer is: </string>
+    <string name="edited_answer_incorrect">The correct answer was: </string>
     <string name="timer_text">Time:</string>
     <string name="quiz_over">The quiz is over! You may scroll up and down to see the correct answers.</string>
     <string name="score">Score:</string>
     <string name="restart_button">Restart Quiz</string>
+    <string name="splash_author_name">by @CosminC</string>
 
     <string name="toast_all">Amazing! You\'ve got a perfect 12 out of 12 score!</string>
     <string name="toast_none">Not even one correct answer? Did you even try?</string>

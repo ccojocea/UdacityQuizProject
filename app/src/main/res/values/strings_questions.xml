@@ -1,64 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="q1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+    <string name="q1">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
     <string name="a11">Answer 11</string>
     <string name="a12">Answer 12</string>
     <string name="a13">Correct Answer 13</string>
     <string name="a14">Answer 14</string>
 
-    <string name="q2">Question 2</string>
+    <string name="q2">2. Question 2</string>
     <string name="a21">Answer 21</string>
     <string name="a22">Correct Answer 22</string>
     <string name="a23">Answer 23</string>
     <string name="a24">Answer 24</string>
 
-    <string name="q3">Question 3</string>
-    <string name="a31">Answer 31</string>
-    <string name="a32">Answer 32</string>
-    <string name="a33">Answer 33</string>
-    <string name="a34">Correct Answer 34</string>
+    <string name="q3">3. What will the following code display when executed?</string>
+    <!--\n\npublic class Quiz {\n\tint x;\n\tvoid methodOne(int x){\n\t\tx=8;\n\t\tmethodTwo(this.x);\n\t}\n\n\tvoid methodTwo(int x){\n\t\tx++;\n\t}\n\n\tpublic static void main(String[] args){\n\t\tQuiz quiz = new Quiz();\n\t\tquiz.methodTwo(4);\n\t\tSystem.out.println(quiz.x);\n\t}\n}-->
+    <string name="a31">Code will not compile</string>
+    <string name="a32">5</string>
+    <string name="a33">9</string>
+    <string name="a34">0</string>
 
-    <string name="q4">Question 4</string>
+    <string name="q4">4. Question 4</string>
     <string name="a41">Correct Answer 41</string>
     <string name="a42">Answer 42</string>
     <string name="a43">Answer 43</string>
     <string name="a44">Answer 44</string>
 
-    <string name="q5">Question 5</string>
-    <string name="a51">Answer 51</string>
-    <string name="a52">Correct Answer 52</string>
-    <string name="a53">Answer 53</string>
-    <string name="a54">Correct Answer 54</string>
+    <string name="q5">5. Which of the following are true regarding the sections of the for statement in Java?\n\nfor(section1; section2; section3;){...}</string>
+    <string name="a51">section1 is executed at the beginning of every iteration</string>
+    <string name="a52">section1 is executed once</string>
+    <string name="a53">section3 is executed at the beginning of every iteration</string>
+    <string name="a54">section2 is evaluated at the beginning of every iteration</string>
 
-    <string name="q6">Question 6</string>
-    <string name="a61">Correct Answer 61</string>
-    <string name="a62">Answer 62</string>
-    <string name="a63">Correct Answer 63</string>
-    <string name="a64">Answer 64</string>
+    <string name="q6">6. Which of the following are considered to be members of a Java class?</string>
+    <string name="a61">attributes</string>
+    <string name="a62">parameters</string>
+    <string name="a63">methods</string>
+    <string name="a64">arguments</string>
 
-    <string name="q7">Question 7</string>
+    <string name="q7">7. Question 7</string>
     <string name="a71">Answer 71</string>
     <string name="a72">Answer 72</string>
     <string name="a73">Correct Answer 73</string>
     <string name="a74">Correct Answer 74</string>
 
-    <string name="q8">Question 8</string>
+    <string name="q8">8. Question 8</string>
     <string name="a81">Answer 81</string>
     <string name="a82">Correct Answer 82</string>
     <string name="a83">Correct Answer 83</string>
     <string name="a84">Answer 84</string>
 
-    <string name="q9">Question 9</string>
+    <string name="q9">9. Question 9</string>
     <string name="a90">Answer 9</string>
 
-    <string name="q10">Question 10</string>
+    <string name="q10">10. Question 10</string>
     <string name="a100">Answer 10</string>
 
-    <string name="q11">Question 11</string>
+    <string name="q11">11. Question 11</string>
     <string name="a110">Answer 11</string>
 
-    <string name="q12">Question 12</string>
+    <string name="q12">12. Question 12</string>
     <string name="a120">Answer 12</string>
 
 
