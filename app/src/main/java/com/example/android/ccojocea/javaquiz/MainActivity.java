@@ -2,6 +2,7 @@ package com.example.android.ccojocea.javaquiz;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -13,6 +14,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -21,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Timer;
@@ -48,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     boolean etAnswer11;
     boolean etAnswer12;
 
+    //Change this to Full, Old, New for different types of grading for the multiple choice questions
+    MultipleAnswerQuestion.GradingSystem grading = MultipleAnswerQuestion.GradingSystem.FULL;
+
     Quiz mQuiz;
 
     Timer t;
@@ -64,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     TextView textView11;
     TextView textView12;
     Toast quizToast;
+
+    //Question ImageViews
+    ImageView imgQuestion2;
 
     //Views related to answers:
     //Single Answer Views
@@ -93,11 +102,17 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     EditText editText10;
     EditText editText11;
     EditText editText12;
+    //Spinner
+    Spinner spinnerMultipleChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
+        //change color on spinner triangle icon
+        spinnerMultipleChoice = findViewById(R.id.spinner_multiple_choice);
+        spinnerMultipleChoice.getBackground().setColorFilter(getResources().getColor(R.color.colorSecondary), PorterDuff.Mode.SRC_ATOP);
 
         //instantiate the quiz
         mQuiz = createQuiz();
@@ -107,6 +122,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         scoreButton = findViewById(R.id.submit_score_check);
         scoreView = findViewById(R.id.main_score_text);
         javaLogo = findViewById(R.id.java_logo);
+        //find ImageViews from questions
+        imgQuestion2 = findViewById(R.id.img_question_2);
         //find each textview for solutions on edited answer questions
         textView9 = findViewById(R.id.text_view_q9);
         textView10 = findViewById(R.id.text_view_q10);
@@ -429,6 +446,21 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
      */
     public void checkYourAnswers(){
         readArray = true;
+
+        //Get spinner position to implement grading system
+        if(spinnerMultipleChoice.getSelectedItemPosition() == 0){
+            grading = MultipleAnswerQuestion.GradingSystem.FULL;
+        }
+        if(spinnerMultipleChoice.getSelectedItemPosition() == 1){
+            grading = MultipleAnswerQuestion.GradingSystem.PARTIAL_NEW;
+        }
+        if(spinnerMultipleChoice.getSelectedItemPosition() == 2){
+            grading = MultipleAnswerQuestion.GradingSystem.PARTIAL_OLD;
+        }
+        if(spinnerMultipleChoice.getSelectedItemPosition() == AdapterView.INVALID_POSITION){
+            grading = MultipleAnswerQuestion.GradingSystem.FULL;
+        }
+
         float scoreFloat = checkSingleQuestionAnswers(readArray) + checkMultipleQuestionAnswers(readArray) + checkEditedQuestionAnswers();
         int scoreInt = (int) scoreFloat;
         String toastMessage;
@@ -487,6 +519,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         anim.setRepeatMode(Animation.REVERSE);
         anim.setRepeatCount(Animation.INFINITE);
         scoreView.startAnimation(anim);
+
+        //show image answers
+        imgQuestion2.setImageResource(R.drawable.question2_answer);
 
         //make the mask layout visible
         //disable the Check your results button
@@ -572,10 +607,10 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         checkBox83.setBackground(getResources().getDrawable(R.drawable.bg_select_correct_answer));
 
         if(readArray){
-            score += mQuiz.multipleAnswerQuestions.get(0).validateAnswer(checkBox51.isChecked(), checkBox52.isChecked(), checkBox53.isChecked(), checkBox54.isChecked());
-            score += mQuiz.multipleAnswerQuestions.get(1).validateAnswer(checkBox61.isChecked(), checkBox62.isChecked(), checkBox63.isChecked(), checkBox64.isChecked());
-            score += mQuiz.multipleAnswerQuestions.get(2).validateAnswer(checkBox71.isChecked(), checkBox72.isChecked(), checkBox73.isChecked(), checkBox74.isChecked());
-            score += mQuiz.multipleAnswerQuestions.get(3).validateAnswer(checkBox81.isChecked(), checkBox82.isChecked(), checkBox83.isChecked(), checkBox84.isChecked());
+            score += mQuiz.multipleAnswerQuestions.get(0).validateAnswer(grading, checkBox51.isChecked(), checkBox52.isChecked(), checkBox53.isChecked(), checkBox54.isChecked());
+            score += mQuiz.multipleAnswerQuestions.get(1).validateAnswer(grading, checkBox61.isChecked(), checkBox62.isChecked(), checkBox63.isChecked(), checkBox64.isChecked());
+            score += mQuiz.multipleAnswerQuestions.get(2).validateAnswer(grading, checkBox71.isChecked(), checkBox72.isChecked(), checkBox73.isChecked(), checkBox74.isChecked());
+            score += mQuiz.multipleAnswerQuestions.get(3).validateAnswer(grading, checkBox81.isChecked(), checkBox82.isChecked(), checkBox83.isChecked(), checkBox84.isChecked());
         }
 
         return score;

@@ -2,7 +2,8 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+        <item name="spinnerDropDownItemStyle">@style/mySpinnerItemStyle</item>
+        <item name="android:spinnerItemStyle">@style/mySpinnerItemStyle</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorSecondaryLight</item>
@@ -46,4 +47,11 @@
         <item name="android:background">@drawable/imageview_border</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
+
+    <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:background">@drawable/bg_spinner_selector</item>
+        <item name="android:dropDownSelector">@color/colorSecondary</item>
+    </style>
+
 </resources>

@@ -7,11 +7,11 @@
     <string name="a13">Correct Answer 13</string>
     <string name="a14">Answer 14</string>
 
-    <string name="q2">2. Question 2</string>
-    <string name="a21">Answer 21</string>
-    <string name="a22">Correct Answer 22</string>
-    <string name="a23">Answer 23</string>
-    <string name="a24">Answer 24</string>
+    <string name="q2">2. What is displayed when the following code is run?</string>
+    <string name="a21">The output is: 2.0 R</string>
+    <string name="a22">An "ArrayIndexOutOfBoundsException is thrown"</string>
+    <string name="a23">The output is: 2.0 2</string>
+    <string name="a24">The output is: 5.3 4</string>
 
     <string name="q3">3. What will the following code display when executed?</string>
     <!--\n\npublic class Quiz {\n\tint x;\n\tvoid methodOne(int x){\n\t\tx=8;\n\t\tmethodTwo(this.x);\n\t}\n\n\tvoid methodTwo(int x){\n\t\tx++;\n\t}\n\n\tpublic static void main(String[] args){\n\t\tQuiz quiz = new Quiz();\n\t\tquiz.methodTwo(4);\n\t\tSystem.out.println(quiz.x);\n\t}\n}-->

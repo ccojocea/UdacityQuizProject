@@ -13,5 +13,5 @@
     <dimen name="card_view_corner_radius">12dp</dimen>
     <dimen name="card_view_elevation">8dp</dimen>
     <dimen name="image_border">2dp</dimen>
-    <dimen name="image_padding">4dp</dimen>
+    <dimen name="image_padding">3dp</dimen>
 </resources>
