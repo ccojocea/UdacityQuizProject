@@ -352,6 +352,15 @@
                             android:textSize="@dimen/note_font_size"
                             android:layout_marginBottom="@dimen/layout_margin_xs"/>
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/multiple_answer_choices"
+                            android:textColor="@color/colorSecondary"
+                            android:textSize="@dimen/note_font_size"
+                            android:textStyle="italic"
+                            android:layout_marginBottom="@dimen/layout_margin_xs"/>
+
                         <Spinner
                             android:id="@+id/spinner_multiple_choice"
                             android:layout_width="match_parent"

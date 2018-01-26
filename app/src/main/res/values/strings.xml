@@ -1,7 +1,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Java Quiz</string>
     <string name="single_answer">The following questions have a single correct answer</string>
-    <string name="multiple_answer">The following questions have multiple correct answers. Select the grading option from the menu:\nNormal: Get a point only if you find all correct answers, without checking any extras.\nPartial 1: Get partial points for each correct answer. Get nothing if you select 3 or 4 answers.\nPartial 2: Get partial points for each correct answer but get penalised for incorrect ones.</string>
+    <string name="multiple_answer">The following questions have multiple correct answers. Select the grading option from the menu:</string>
+    <string name="multiple_answer_choices">Normal: Get a point only if you find all correct answers, without checking any extras.\nPartial 1: Get partial points for each correct answer. Get nothing if you select 3 or 4 answers.\nPartial 2: Get partial points for each correct answer but get penalised for incorrect ones.</string>
     <string name="edited_answer">Please type your answer to the following questions</string>
     <string name="final_score_button">Check your answers</string>
     <string name="h9">Please type your answer here 9</string>
