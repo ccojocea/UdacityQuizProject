@@ -32,8 +32,8 @@
     <string name="dialog_number_of_questions_tv_some">You have not answered <xliff:g id="questions" example="2">%d</xliff:g> questions.</string>
     <string name="dialog_number_of_questions_tv_one">You have not answered one question.</string>
     <string name="dialog_number_of_questions_tv_all">You have answered all questions.</string>
-    <string name="missed_questions">The questions you missed are:</string>
-    <string name="one_missed_question">The one you missed is question:</string>
+    <string name="missed_questions">Missed questions:</string>
+    <string name="one_missed_question">Missed question:</string>
     <string name="positive_button">Ok</string>
     <string name="negative_button">Cancel</string>
 
