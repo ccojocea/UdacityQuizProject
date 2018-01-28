@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@drawable/title_logo_vertical"/>
+        android:src="@drawable/title_logo_vertical_long"/>
 
     <ScrollView
         android:id="@+id/base_scroll_view"
