@@ -18,6 +18,8 @@
             android:text="@string/confirm_message"
             android:textColor="@color/colorSecondaryLight"
             android:textSize="@dimen/answer_font_size"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
             android:layout_marginBottom="@dimen/layout_margin"/>
 
         <TextView
@@ -25,9 +27,11 @@
             android:layout_below="@id/dialog_confirm_message_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:textColor="@color/colorSecondaryLight"
             android:textSize="@dimen/answer_font_size"
             android:text=""
+            android:textAlignment="center"
             android:layout_marginBottom="@dimen/layout_margin"/>
 
         <LinearLayout
