@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/padding"
+    android:padding="@dimen/padding_xs"
     android:background="@color/colorPrimaryDark"
     tools:context="com.example.android.ccojocea.javaquiz.SplashScreen">
 
@@ -11,10 +11,11 @@
         android:id="@+id/udacity_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/udacity500"
-        android:adjustViewBounds="true" />
+        android:layout_above="@id/splash_app_title"
+        android:src="@drawable/udacity500" />
 
     <LinearLayout
         android:id="@+id/splash_app_title"
@@ -27,6 +28,7 @@
             android:id="@+id/java_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:layout_gravity="center"
             android:src="@drawable/java_logo_low_contrast_xxs"/>
 
