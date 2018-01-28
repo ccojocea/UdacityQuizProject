@@ -217,8 +217,6 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
 
         }
 
-        //calculate height of UI elements to set it to the mask layout
-        setHeight();
     }
 
 
@@ -538,7 +536,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         checkEditedQuestionAnswers();
         checkSingleQuestionAnswers(readArray);
         checkMultipleQuestionAnswers(readArray);
-        
+
+        //calculate the height of UI elements to set it to the mask layout which gets displayed whenever the game is over.
+        setHeight();
     }
 
     /**
