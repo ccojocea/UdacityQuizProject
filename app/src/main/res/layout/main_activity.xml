@@ -586,12 +586,16 @@
                             android:layout_height="wrap_content"
                             android:text="@string/q9" />
 
+                        <ImageView
+                            android:id="@+id/img_question_9"
+                            android:src="@drawable/question9"
+                            style="@style/QuestionImage"/>
+
                         <TextView
                             android:id="@+id/text_view_q9"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/layout_margin_xxs"
-                            android:layout_marginTop="@dimen/layout_margin_xs"
                             android:text=""
                             android:textColor="@color/colorSecondaryLight" />
 
@@ -624,12 +628,16 @@
                             android:layout_height="wrap_content"
                             android:text="@string/q10" />
 
+                        <ImageView
+                            android:id="@+id/img_question_10"
+                            android:src="@drawable/question10"
+                            style="@style/QuestionImage"/>
+
                         <TextView
                             android:id="@+id/text_view_q10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/layout_margin_xxs"
-                            android:layout_marginTop="@dimen/layout_margin_xs"
                             android:text=""
                             android:textColor="@color/colorSecondaryLight" />
 
@@ -661,12 +669,16 @@
                             android:layout_height="wrap_content"
                             android:text="@string/q11" />
 
+                        <ImageView
+                            android:id="@+id/img_question_11"
+                            android:src="@drawable/question11"
+                            style="@style/QuestionImage"/>
+
                         <TextView
                             android:id="@+id/text_view_q11"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/layout_margin_xxs"
-                            android:layout_marginTop="@dimen/layout_margin_xs"
                             android:text=""
                             android:textColor="@color/colorSecondaryLight" />
 
@@ -703,7 +715,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/layout_margin_xxs"
-                            android:layout_marginTop="@dimen/layout_margin_xs"
                             android:text=""
                             android:textColor="@color/colorSecondaryLight" />
 

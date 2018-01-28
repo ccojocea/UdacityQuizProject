@@ -40,7 +40,11 @@
             android:textColor="@color/colorSecondary"
             android:textAlignment="center"
             android:fontFamily="@font/shrikhand_regular"
-            android:textAllCaps="true"/>
+            android:textAllCaps="true"
+            android:shadowColor="@color/colorSecondaryDark"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="5"/>
 
     </LinearLayout>
 

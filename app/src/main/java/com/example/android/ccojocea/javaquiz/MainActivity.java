@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
 
         //change color on spinner triangle icon
         spinnerMultipleChoice = findViewById(R.id.spinner_multiple_choice);
-        spinnerMultipleChoice.getBackground().setColorFilter(getResources().getColor(R.color.colorSecondary), PorterDuff.Mode.SRC_ATOP);
+        spinnerMultipleChoice.getBackground().setColorFilter(ContextCompat.getColor(this, R.color.colorSecondary), PorterDuff.Mode.SRC_ATOP);
 
         //instantiate the quiz
         mQuiz = createQuiz();
@@ -246,19 +248,19 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             displayTimerText();
             if(etAnswer9){
                 textView9.setText(getString(R.string.edited_answer_correct));
-                editText9.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+                editText9.setTextColor(ContextCompat.getColor(this, R.color.textCorrectAnswer));
             }
             if(etAnswer10){
                 textView10.setText(getString(R.string.edited_answer_correct));
-                editText10.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+                editText10.setTextColor(ContextCompat.getColor(this, R.color.textCorrectAnswer));
             }
             if(etAnswer11){
                 textView11.setText(getString(R.string.edited_answer_correct));
-                editText11.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+                editText11.setTextColor(ContextCompat.getColor(this, R.color.textCorrectAnswer));
             }
             if(etAnswer12){
                 textView12.setText(getString(R.string.edited_answer_correct));
-                editText12.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+                editText12.setTextColor(ContextCompat.getColor(this, R.color.textCorrectAnswer));
             }
         } else {
             t = new Timer();
@@ -632,37 +634,45 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             score++;
             etAnswer9 = true;
             textView9.setText(getString(R.string.edited_answer_correct));
-            editText9.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+            editText9.setTextColor(ContextCompat.getColor(this, R.color.textCorrectAnswer));
         }else{
             textView9.setText(getString(R.string.edited_answer_incorrect) + " " + getString(R.string.a90));
-            editText9.setTextColor(getResources().getColor(R.color.textWrongAnswer));
+            textView9.setTextColor(ContextCompat.getColor(this, R.color.textWrongAnswer));
+            editText9.setTextColor(ContextCompat.getColor(this, R.color.textWrongAnswer));
+            editText9.setHint("");
         }
         if(mQuiz.editedAnswerQuestions.get(1).validateAnswer(editText10.getText().toString())){
             score++;
             etAnswer10 = true;
             textView10.setText(getString(R.string.edited_answer_correct));
-            editText10.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+            editText10.setTextColor(ContextCompat.getColor(this, R.color.textCorrectAnswer));
         }else{
             textView10.setText(getString(R.string.edited_answer_incorrect) + " " + getString(R.string.a100));
-            editText10.setTextColor(getResources().getColor(R.color.textWrongAnswer));
+            textView10.setTextColor(ContextCompat.getColor(this, R.color.textWrongAnswer));
+            editText10.setTextColor(ContextCompat.getColor(this, R.color.textWrongAnswer));
+            editText10.setHint("");
         }
         if(mQuiz.editedAnswerQuestions.get(2).validateAnswer(editText11.getText().toString())){
             score++;
             etAnswer11 = true;
             textView11.setText(getString(R.string.edited_answer_correct));
-            editText11.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+            editText11.setTextColor(ContextCompat.getColor(this, R.color.textCorrectAnswer));
         }else{
             textView11.setText(getString(R.string.edited_answer_incorrect) + " " + getString(R.string.a110));
-            editText11.setTextColor(getResources().getColor(R.color.textWrongAnswer));
+            textView11.setTextColor(ContextCompat.getColor(this, R.color.textWrongAnswer));
+            editText11.setTextColor(ContextCompat.getColor(this, R.color.textWrongAnswer));
+            editText11.setHint("");
         }
         if(mQuiz.editedAnswerQuestions.get(3).validateAnswer(editText12.getText().toString())){
             score++;
             etAnswer12 = true;
             textView12.setText(getString(R.string.edited_answer_correct));
-            editText12.setTextColor(getResources().getColor(R.color.textCorrectAnswer));
+            editText12.setTextColor(ContextCompat.getColor(this, R.color.textCorrectAnswer));
         }else{
             textView12.setText(getString(R.string.edited_answer_incorrect) + " " + getString(R.string.a120));
-            editText12.setTextColor(getResources().getColor(R.color.textWrongAnswer));
+            textView12.setTextColor(ContextCompat.getColor(this, R.color.textWrongAnswer));
+            editText12.setTextColor(ContextCompat.getColor(this, R.color.textWrongAnswer));
+            editText12.setHint("");
         }
 
         return score;

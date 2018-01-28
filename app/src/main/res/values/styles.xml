@@ -10,12 +10,16 @@
     </style>
 
     <style name="AnswerText">
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
+        <item name="android:minHeight">@dimen/answer_text_layout_height</item>
         <item name="android:textColor">@color/textNormalAnswer</item>
         <item name="android:background">@drawable/bg_select</item>
         <item name="android:textSize">@dimen/answer_font_size</item>
         <item name="android:layout_marginTop">8dp</item>
+        <item name="android:padding">@dimen/layout_margin_xxs</item>
+        <item name="android:button">@null</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="QuestionText">

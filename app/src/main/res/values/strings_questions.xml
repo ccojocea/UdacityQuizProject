@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="q1">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
-    <string name="a11">Answer 11</string>
-    <string name="a12">Answer 12</string>
-    <string name="a13">Correct Answer 13</string>
-    <string name="a14">Answer 14</string>
+    <string name="q1">1. What access level must a parent class member have in order to be accessible only in subclasses from the same package?</string>
+    <string name="a11">public</string>
+    <string name="a12">protected</string>
+    <string name="a13">no modifier</string>
+    <string name="a14">private</string>
 
     <string name="q2">2. What is displayed when the following code is run?</string>
     <string name="a21">The output is: 2.0 R</string>
@@ -14,17 +14,16 @@
     <string name="a24">The output is: 5.3 4</string>
 
     <string name="q3">3. What will the following code display when executed?</string>
-    <!--\n\npublic class Quiz {\n\tint x;\n\tvoid methodOne(int x){\n\t\tx=8;\n\t\tmethodTwo(this.x);\n\t}\n\n\tvoid methodTwo(int x){\n\t\tx++;\n\t}\n\n\tpublic static void main(String[] args){\n\t\tQuiz quiz = new Quiz();\n\t\tquiz.methodTwo(4);\n\t\tSystem.out.println(quiz.x);\n\t}\n}-->
     <string name="a31">Code will not compile</string>
     <string name="a32">5</string>
     <string name="a33">9</string>
     <string name="a34">0</string>
 
-    <string name="q4">4. Question 4</string>
-    <string name="a41">Correct Answer 41</string>
-    <string name="a42">Answer 42</string>
-    <string name="a43">Answer 43</string>
-    <string name="a44">Answer 44</string>
+    <string name="q4">4. Which method from class Object must be overridden in the Person class in order for the code below to print John?</string>
+    <string name="a41">toString()</string>
+    <string name="a42">hashCode()</string>
+    <string name="a43">equals()</string>
+    <string name="a44">stringValue()</string>
 
     <string name="q5">5. Which of the following are true regarding the sections of the for statement in Java?\n\nfor(section1; section2; section3;){...}</string>
     <string name="a51">section1 is executed at the beginning of every iteration</string>
@@ -44,23 +43,23 @@
     <string name="a73">Correct Answer 73</string>
     <string name="a74">Correct Answer 74</string>
 
-    <string name="q8">8. Question 8</string>
-    <string name="a81">Answer 81</string>
-    <string name="a82">Correct Answer 82</string>
-    <string name="a83">Correct Answer 83</string>
-    <string name="a84">Answer 84</string>
+    <string name="q8">8. Which of the following are Java keywords that act as access modifiers and can be used in the definition of a class member?</string>
+    <string name="a81">global</string>
+    <string name="a82">private</string>
+    <string name="a83">protected</string>
+    <string name="a84">default</string>
 
-    <string name="q9">9. Question 9</string>
-    <string name="a90">Answer 9</string>
+    <string name="q9">9. What will the following code display when executed?</string>
+    <string name="a90">C</string>
 
-    <string name="q10">10. Question 10</string>
-    <string name="a100">Answer 10</string>
+    <string name="q10">10. How many .class files will the following code generate when compiled? Please use a numerical digit to answer.</string>
+    <string name="a100">3</string>
 
-    <string name="q11">11. Question 11</string>
-    <string name="a110">Answer 11</string>
+    <string name="q11">11. What will the following code display when run?</string>
+    <string name="a110">CBA</string>
 
-    <string name="q12">12. Question 12</string>
-    <string name="a120">Answer 12</string>
+    <string name="q12">12. Which term describes a memory resident entity containing both data and instructions for processing the data, that can be manipulated using a reference?</string>
+    <string name="a120">Object</string>
 
 
 

@@ -5,10 +5,10 @@
     <string name="multiple_answer_choices">Normal: Get a point only if you find all correct answers, without checking any extras.\nPartial 1: Get partial points for each correct answer. Get nothing if you select 3 or 4 answers.\nPartial 2: Get partial points for each correct answer but get penalised for incorrect ones.</string>
     <string name="edited_answer">Please type your answer to the following questions</string>
     <string name="final_score_button">Check your answers</string>
-    <string name="h9">Please type your answer here 9</string>
-    <string name="h10">Please type your answer here 10</string>
-    <string name="h11">Please type your answer here 11</string>
-    <string name="h12">Please type your answer here 12</string>
+    <string name="h9">Please type your answer here</string>
+    <string name="h10">Please type your answer here</string>
+    <string name="h11">Please type your answer here</string>
+    <string name="h12">Please type your answer here</string>
     <string name="edited_answer_correct">Your answer is correct!</string>
     <string name="edited_answer_incorrect">The correct answer was: </string>
     <string name="timer_text">Time:</string>
