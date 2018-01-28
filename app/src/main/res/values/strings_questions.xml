@@ -38,8 +38,8 @@
     <string name="a63">methods</string>
     <string name="a64">arguments</string>
 
-    <string name="q7">7. In the code below, how can a <xliff:g id="String"><i>String</i></xliff:g> object be created based on the primitive value <xliff:g id="i"><i>i</i>i></xliff:g>?
-        /nChoose correct replacements for the <xliff:g id="???">???</xliff:g> sequence.</string>
+    <string name="q7">7. In the code below, how can a <xliff:g id="String"><i>String</i></xliff:g> object be created based on the primitive value <xliff:g id="i"><i>i</i></xliff:g>?
+        \nChoose correct replacements for the <xliff:g id="???">???</xliff:g> sequence.</string>
     <string name="a71" translatable="false">(String) i</string>
     <string name="a72" translatable="false">String.intValue(i)</string>
     <string name="a73" translatable="false">Integer.toString(i)</string>

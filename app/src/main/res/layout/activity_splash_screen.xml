@@ -39,6 +39,8 @@
             android:textSize="@dimen/splash_font_size"
             android:textColor="@color/colorSecondary"
             android:textAlignment="center"
+            android:paddingLeft="@dimen/padding_xs"
+            android:paddingRight="@dimen/padding_xs"
             android:fontFamily="@font/shrikhand_regular"
             android:textAllCaps="true"
             android:shadowColor="@color/colorSecondaryDark"
