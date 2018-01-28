@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_relative_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -45,6 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/separator_line_view"
         android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginRight="@dimen/layout_margin"
+        android:layout_marginLeft="@dimen/layout_margin"
         android:background="@drawable/bg_button_select"
         android:onClick="restartGame"
         android:shadowColor="@color/colorSecondaryDark"
@@ -53,7 +56,7 @@
         android:shadowRadius="4"
         android:text="@string/restart_button"
         android:textSize="@dimen/answer_font_size"
-        android:visibility="gone" />
+        android:visibility="gone"/>
 
     <ScrollView
         android:id="@+id/base_scroll_view"
@@ -737,6 +740,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/layout_margin"
+                    android:layout_marginLeft="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/layout_margin"
                     android:background="@drawable/bg_button_select"
                     android:onClick="checkAnswers"
                     android:shadowColor="@color/colorSecondaryDark"
