@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="q1">1. What access level must a parent class member have in order to be accessible only in subclasses from the same package?</string>
-    <string name="a11">public</string>
-    <string name="a12">protected</string>
+    <string name="a11" translatable="false">public</string>
+    <string name="a12" translatable="false">protected</string>
     <string name="a13">no modifier</string>
-    <string name="a14">private</string>
+    <string name="a14" translatable="false">private</string>
 
     <string name="q2">2. What is displayed when the following code is run?</string>
-    <string name="a21">The output is: 2.0 R</string>
-    <string name="a22">An "ArrayIndexOutOfBoundsException is thrown"</string>
-    <string name="a23">The output is: 2.0 2</string>
-    <string name="a24">The output is: 5.3 4</string>
+    <string name="a21">The output is: <xliff:g id="2.0 R">2.0 R</xliff:g></string>
+    <string name="a22">An <xliff:g id="OutOfBounds">ArrayIndexOutOfBoundsException</xliff:g> is thrown</string>
+    <string name="a23">The output is: <xliff:g id="2.0 2">2.0 2</xliff:g></string>
+    <string name="a24">The output is: <xliff:g id="5.3 4">5.3 4</xliff:g></string>
 
     <string name="q3">3. What will the following code display when executed?</string>
     <string name="a31">Code will not compile</string>
-    <string name="a32">5</string>
-    <string name="a33">9</string>
-    <string name="a34">0</string>
+    <string name="a32" translatable="false">5</string>
+    <string name="a33" translatable="false">9</string>
+    <string name="a34" translatable="false">0</string>
 
-    <string name="q4">4. Which method from class Object must be overridden in the Person class in order for the code below to print John?</string>
-    <string name="a41">toString()</string>
-    <string name="a42">hashCode()</string>
-    <string name="a43">equals()</string>
-    <string name="a44">stringValue()</string>
+    <string name="q4">4. Which method from class <xliff:g id="Object class"><i>Object</i></xliff:g> must be overridden in the <xliff:g id="Person class"><i>Person</i></xliff:g> class in order for the code below to print <xliff:g id="John"><i>John</i></xliff:g>?</string>
+    <string name="a41" translatable="false">toString()</string>
+    <string name="a42" translatable="false">hashCode()</string>
+    <string name="a43" translatable="false">equals()</string>
+    <string name="a44" translatable="false">stringValue()</string>
 
-    <string name="q5">5. Which of the following are true regarding the sections of the for statement in Java?\n\nfor(section1; section2; section3;){...}</string>
-    <string name="a51">section1 is executed at the beginning of every iteration</string>
-    <string name="a52">section1 is executed once</string>
-    <string name="a53">section3 is executed at the beginning of every iteration</string>
-    <string name="a54">section2 is evaluated at the beginning of every iteration</string>
+    <string name="q5">5. Which of the following are true regarding the sections of the <xliff:g id="for"><i>for</i></xliff:g> statement in Java?
+        \n\n<xliff:g id="for_statement"><i>for(section1; section2; section3;){&#8230;}</i></xliff:g></string>
+    <string name="a51"><xliff:g id="section1">section1</xliff:g> is executed at the beginning of every iteration</string>
+    <string name="a52"><xliff:g id="section1">section1</xliff:g> is executed once</string>
+    <string name="a53"><xliff:g id="section3">section3</xliff:g> is executed at the beginning of every iteration</string>
+    <string name="a54"><xliff:g id="section2">section2</xliff:g> is evaluated at the beginning of every iteration</string>
 
     <string name="q6">6. Which of the following are considered to be members of a Java class?</string>
     <string name="a61">attributes</string>
@@ -37,30 +38,29 @@
     <string name="a63">methods</string>
     <string name="a64">arguments</string>
 
-    <string name="q7">7. Question 7</string>
-    <string name="a71">Answer 71</string>
-    <string name="a72">Answer 72</string>
-    <string name="a73">Correct Answer 73</string>
-    <string name="a74">Correct Answer 74</string>
+    <string name="q7">7. In the code below, how can a <xliff:g id="String"><i>String</i></xliff:g> object be created based on the primitive value <xliff:g id="i"><i>i</i>i></xliff:g>?
+        /nChoose correct replacements for the <xliff:g id="???">???</xliff:g> sequence.</string>
+    <string name="a71" translatable="false">(String) i</string>
+    <string name="a72" translatable="false">String.intValue(i)</string>
+    <string name="a73" translatable="false">Integer.toString(i)</string>
+    <string name="a74" translatable="false">String.valueOf(i)</string>
 
     <string name="q8">8. Which of the following are Java keywords that act as access modifiers and can be used in the definition of a class member?</string>
-    <string name="a81">global</string>
-    <string name="a82">private</string>
-    <string name="a83">protected</string>
-    <string name="a84">default</string>
+    <string name="a81" translatable="false">global</string>
+    <string name="a82" translatable="false">private</string>
+    <string name="a83" translatable="false">protected</string>
+    <string name="a84" translatable="false">default</string>
 
     <string name="q9">9. What will the following code display when executed?</string>
-    <string name="a90">C</string>
+    <string name="a90" translatable="false">C</string>
 
-    <string name="q10">10. How many .class files will the following code generate when compiled? Please use a numerical digit to answer.</string>
-    <string name="a100">3</string>
+    <string name="q10">10. How many <xliff:g id=".class">.<i>class</i></xliff:g> files will the following code generate when compiled? Please use a numerical digit to answer.</string>
+    <string name="a100" translatable="false">3</string>
 
     <string name="q11">11. What will the following code display when run?</string>
-    <string name="a110">CBA</string>
+    <string name="a110" translatable="false">CBA</string>
 
     <string name="q12">12. Which term describes a memory resident entity containing both data and instructions for processing the data, that can be manipulated using a reference?</string>
-    <string name="a120">Object</string>
-
-
+    <string name="a120" translatable="false">Object</string>
 
 </resources>

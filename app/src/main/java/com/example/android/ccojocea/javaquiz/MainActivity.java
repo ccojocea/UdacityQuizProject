@@ -538,6 +538,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         checkEditedQuestionAnswers();
         checkSingleQuestionAnswers(readArray);
         checkMultipleQuestionAnswers(readArray);
+        
     }
 
     /**

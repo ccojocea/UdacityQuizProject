@@ -8,7 +8,8 @@
     android:focusableInTouchMode="true"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp"
+    android:paddingTop="@dimen/layout_margin_xxs">
 
     <TextView
         android:id="@+id/main_timer_text"
@@ -65,7 +66,7 @@
         <RelativeLayout
             android:id="@+id/top_element"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/base_layout"
@@ -479,6 +480,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/q7" />
+
+                        <ImageView
+                            android:id="@+id/img_question_7"
+                            android:src="@drawable/question7"
+                            style="@style/QuestionImage"/>
 
                         <CheckBox
                             android:id="@+id/q7_a1_checkbox"
