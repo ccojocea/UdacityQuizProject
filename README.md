@@ -9,8 +9,14 @@ What you can expect to find in this app:
 - Selecting to check the answers presents the user with a dialog informing him of any questions that he missed (with numbers) and allowing him to cancel his action or end the quiz.
 - After ending the quiz, the input is blocked from all answers, preventing changes. A Toast message is displayed in the event they user tries to keep changing anything.
 - The score is displayed in a Toast once after finishing, and also in a flashing TextView always visible at the top of the screen.
-- All correct/wrong answers are highlighted at the, including showing EditText correct answers in a separate TextView.
+- All correct/wrong answers are highlighted at the end, including showing EditText correct answers in a separate TextView.
 - A restart button is available after completing the quiz which resets everything.
 - There's a short and simple splash screen implemented when the app first starts.
 - There are separate landscape layouts, although with very minor additions.
 - All of the text is in strings.xml and strings_questions.xml (at least I hope so), ready for localisation if needed, used the xliff:g tag as well where needed.
+
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/blob/master/extras/device_1.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/blob/master/extras/device_2.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/blob/master/extras/device_3.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/blob/master/extras/device_4.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/blob/master/extras/device_5.png)
