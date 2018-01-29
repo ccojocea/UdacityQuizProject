@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
@@ -36,7 +37,6 @@ import java.util.TimerTask;
  */
 
 public class MainActivity extends AppCompatActivity implements ConfirmSubmitDialogFragment.ConfirmDialogListener{
-
     //score as string to save the value of either an int or a float in regards to score
     String score = "";
     //variable used by the timer
