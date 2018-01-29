@@ -15,8 +15,8 @@ What you can expect to find in this app:
 - There are separate landscape layouts, although with very minor additions.
 - All of the text is in strings.xml and strings_questions.xml (at least I hope so), ready for localisation if needed, used the xliff:g tag as well where needed.
 
-![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/blob/master/extras/device_1.png)
-![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/blob/master/extras/device_2.png)
-![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/blob/master/extras/device_3.png)
-![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/blob/master/extras/device_4.png)
-![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/blob/master/extras/device_5.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_1.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_2.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_3.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_4.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_5.png)
