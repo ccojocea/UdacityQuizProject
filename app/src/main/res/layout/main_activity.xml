@@ -301,6 +301,11 @@
                             android:layout_height="wrap_content"
                             android:text="@string/q4" />
 
+                        <ImageView
+                            android:id="@+id/img_question_4"
+                            android:src="@drawable/question4"
+                            style="@style/QuestionImage"/>
+
                         <RadioGroup
                             android:id="@+id/q4_radio_group"
                             android:layout_width="match_parent"
