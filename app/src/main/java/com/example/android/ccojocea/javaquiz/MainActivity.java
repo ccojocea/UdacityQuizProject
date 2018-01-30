@@ -776,4 +776,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         finish();
         startActivity(intent);
     }
+
+    public void openAboutDialog(View view){
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
 }

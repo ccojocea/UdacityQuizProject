@@ -20,7 +20,12 @@
 
         <!-- Main activity -->
         <activity
-            android:name=".MainActivity" >
+            android:name=".MainActivity">
+        </activity>
+
+        <!--About activity-->
+        <activity
+            android:name=".AboutActivity">
         </activity>
     </application>
 
