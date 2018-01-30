@@ -47,11 +47,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     boolean readArray;
     //save all unanswered questions into an array
     int[] unansweredQuestions;
-    //used to store if the correct answer was found for the 4 edittext questions, again for orientation change purposes
-    boolean etAnswer9;
-    boolean etAnswer10;
-    boolean etAnswer11;
-    boolean etAnswer12;
+    //used to store if the correct answer was found for the 4 EditText questions, again for orientation change purposes
+    boolean etAnswer9, etAnswer10, etAnswer11, etAnswer12;
 
     //Change this to Full, Old, New for different types of grading for the multiple choice questions
     MultipleAnswerQuestion.GradingSystem grading = MultipleAnswerQuestion.GradingSystem.FULL;
@@ -63,14 +60,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     ScrollView scrollView;
     LinearLayout layoutMask;
     ImageView javaLogo;
-    Button scoreButton;
-    Button restartButton;
-    TextView timerText;
-    TextView scoreView;
-    TextView textView9;
-    TextView textView10;
-    TextView textView11;
-    TextView textView12;
+    Button scoreButton, shareButton, restartButton;
+    TextView timerText, scoreView;
+    TextView textView9, textView10, textView11, textView12;
     Toast quizToast;
 
     //Question ImageViews
@@ -78,32 +70,14 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
 
     //Views related to answers:
     //Single Answer Views
-    RadioGroup radioQuestion1;
-    RadioGroup radioQuestion2;
-    RadioGroup radioQuestion3;
-    RadioGroup radioQuestion4;
+    RadioGroup radioQuestion1, radioQuestion2, radioQuestion3, radioQuestion4;
     //Multiple Answer Views
-    CheckBox checkBox51;
-    CheckBox checkBox52;
-    CheckBox checkBox53;
-    CheckBox checkBox54;
-    CheckBox checkBox61;
-    CheckBox checkBox62;
-    CheckBox checkBox63;
-    CheckBox checkBox64;
-    CheckBox checkBox71;
-    CheckBox checkBox72;
-    CheckBox checkBox73;
-    CheckBox checkBox74;
-    CheckBox checkBox81;
-    CheckBox checkBox82;
-    CheckBox checkBox83;
-    CheckBox checkBox84;
+    CheckBox checkBox51, checkBox52, checkBox53, checkBox54;
+    CheckBox checkBox61, checkBox62, checkBox63, checkBox64;
+    CheckBox checkBox71, checkBox72, checkBox73, checkBox74;
+    CheckBox checkBox81, checkBox82, checkBox83, checkBox84;
     //EditText Views
-    EditText editText9;
-    EditText editText10;
-    EditText editText11;
-    EditText editText12;
+    EditText editText9, editText10, editText11, editText12;
     //Spinner
     Spinner spinnerMultipleChoice;
 
@@ -121,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
 
         layoutMask = findViewById(R.id.image_mask);
         restartButton = findViewById(R.id.btn_restart);
+        shareButton = findViewById(R.id.btn_share);
         scoreButton = findViewById(R.id.submit_score_check);
         scoreView = findViewById(R.id.main_score_text);
         javaLogo = findViewById(R.id.java_logo);
@@ -529,6 +504,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         scoreButton.setEnabled(false);
         isOver = true;
         restartButton.setVisibility(View.VISIBLE);
+        shareButton.setVisibility(View.VISIBLE);
 
 
         readArray = false;
@@ -780,5 +756,9 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     public void openAboutDialog(View view){
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
+    }
+
+    public void shareResults(View view){
+        //do nothing yet
     }
 }

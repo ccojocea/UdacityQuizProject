@@ -45,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/separator_line_view"
-        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin_xs"
         android:layout_marginRight="@dimen/layout_margin"
         android:layout_marginLeft="@dimen/layout_margin"
         android:background="@drawable/bg_button_select"
@@ -63,7 +63,7 @@
         android:layout_below="@id/btn_restart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin_xs"
         android:layout_marginLeft="@dimen/layout_margin"
         android:layout_marginRight="@dimen/layout_margin"
         android:background="@drawable/bg_button_select_faded"
@@ -93,6 +93,7 @@
 
                 <ImageView
                     android:id="@+id/java_logo"
+                    android:layout_marginTop="@dimen/layout_margin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/java_logo_low_contrast_xxs"
