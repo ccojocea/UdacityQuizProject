@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/separator_line_view"
         android:layout_toRightOf="@id/vertical_title_layout"
-        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin_xs"
         android:layout_marginRight="@dimen/layout_margin"
         android:layout_marginLeft="@dimen/layout_margin"
         android:background="@drawable/bg_button_select"
@@ -57,6 +57,30 @@
         android:text="@string/restart_button"
         android:textSize="@dimen/answer_font_size"
         android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_share"
+        android:layout_below="@id/btn_restart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin_xs"
+        android:layout_marginLeft="@dimen/layout_margin"
+        android:layout_marginRight="@dimen/layout_margin"
+        android:layout_marginBottom="@dimen/layout_margin_xs"
+        android:layout_toRightOf="@id/vertical_title_layout"
+        android:background="@drawable/bg_button_select_faded"
+        android:onClick="shareResults"
+        android:text="@string/share_button"
+        android:textSize="@dimen/answer_font_size"
+        android:visibility="gone"/>
+
+    <View
+        android:id="@+id/buttons_view_line"
+        android:layout_below="@id/btn_share"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorSecondaryDark"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/vertical_title_layout"
@@ -70,7 +94,7 @@
         android:layout_toRightOf="@id/vertical_title_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/separator_line_view"
+        android:layout_below="@id/buttons_view_line"
         android:background="@color/colorPrimary"
         android:fillViewport="true">
 
@@ -87,6 +111,7 @@
 
                 <ImageView
                     android:id="@+id/java_logo"
+                    android:layout_marginTop="@dimen/layout_margin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/java_logo_low_contrast_xxs"
@@ -757,6 +782,18 @@
                     android:shadowDy="2"
                     android:shadowRadius="4"
                     android:text="@string/final_score_button"
+                    android:textSize="@dimen/question_font_size" />
+
+                <Button
+                    android:id="@+id/about_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:layout_marginLeft="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/layout_margin"
+                    android:background="@drawable/bg_button_select_faded"
+                    android:onClick="openAboutDialog"
+                    android:text="@string/about_button"
                     android:textSize="@dimen/question_font_size" />
 
             </LinearLayout>

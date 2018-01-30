@@ -28,6 +28,21 @@
         <item name="android:layout_marginBottom">@dimen/layout_margin_xs</item>
     </style>
 
+    <style name="AboutText">
+        <item name="android:textColor">@color/colorSecondaryLight</item>
+        <item name="android:textSize">@dimen/about_font_size</item>
+        <item name="android:layout_marginBottom">@dimen/layout_margin_xs</item>
+    </style>
+
+    <style name="AboutTextLink">
+        <item name="android:textColorLink">@color/colorSecondaryDark</item>
+        <item name="android:textColor">@color/colorSecondaryDark</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textSize">@dimen/about_font_size</item>
+        <item name="android:layout_marginBottom">@dimen/layout_margin_xs</item>
+        <item name="android:linksClickable">true</item>
+    </style>
+
     <style name="LayoutStyle">
         <item name="android:background">@drawable/bg_lin_layout</item>
         <item name="android:padding">@dimen/padding</item>

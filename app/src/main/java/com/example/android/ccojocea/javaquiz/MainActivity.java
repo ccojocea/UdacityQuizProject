@@ -3,6 +3,7 @@ package com.example.android.ccojocea.javaquiz;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -47,11 +48,10 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     boolean readArray;
     //save all unanswered questions into an array
     int[] unansweredQuestions;
-    //used to store if the correct answer was found for the 4 edittext questions, again for orientation change purposes
-    boolean etAnswer9;
-    boolean etAnswer10;
-    boolean etAnswer11;
-    boolean etAnswer12;
+    //used to store if the correct answer was found for the 4 EditText questions, again for orientation change purposes
+    boolean etAnswer9, etAnswer10, etAnswer11, etAnswer12;
+    //String for eMail message
+    String mailMessage;
 
     //Change this to Full, Old, New for different types of grading for the multiple choice questions
     MultipleAnswerQuestion.GradingSystem grading = MultipleAnswerQuestion.GradingSystem.FULL;
@@ -63,14 +63,10 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     ScrollView scrollView;
     LinearLayout layoutMask;
     ImageView javaLogo;
-    Button scoreButton;
-    Button restartButton;
-    TextView timerText;
-    TextView scoreView;
-    TextView textView9;
-    TextView textView10;
-    TextView textView11;
-    TextView textView12;
+    Button scoreButton, shareButton, restartButton;
+    View theLine;
+    TextView timerText, scoreView;
+    TextView textView9, textView10, textView11, textView12;
     Toast quizToast;
 
     //Question ImageViews
@@ -78,32 +74,14 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
 
     //Views related to answers:
     //Single Answer Views
-    RadioGroup radioQuestion1;
-    RadioGroup radioQuestion2;
-    RadioGroup radioQuestion3;
-    RadioGroup radioQuestion4;
+    RadioGroup radioQuestion1, radioQuestion2, radioQuestion3, radioQuestion4;
     //Multiple Answer Views
-    CheckBox checkBox51;
-    CheckBox checkBox52;
-    CheckBox checkBox53;
-    CheckBox checkBox54;
-    CheckBox checkBox61;
-    CheckBox checkBox62;
-    CheckBox checkBox63;
-    CheckBox checkBox64;
-    CheckBox checkBox71;
-    CheckBox checkBox72;
-    CheckBox checkBox73;
-    CheckBox checkBox74;
-    CheckBox checkBox81;
-    CheckBox checkBox82;
-    CheckBox checkBox83;
-    CheckBox checkBox84;
+    CheckBox checkBox51, checkBox52, checkBox53, checkBox54;
+    CheckBox checkBox61, checkBox62, checkBox63, checkBox64;
+    CheckBox checkBox71, checkBox72, checkBox73, checkBox74;
+    CheckBox checkBox81, checkBox82, checkBox83, checkBox84;
     //EditText Views
-    EditText editText9;
-    EditText editText10;
-    EditText editText11;
-    EditText editText12;
+    EditText editText9, editText10, editText11, editText12;
     //Spinner
     Spinner spinnerMultipleChoice;
 
@@ -119,8 +97,10 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         //instantiate the quiz
         mQuiz = createQuiz();
 
+        theLine = findViewById(R.id.buttons_view_line);
         layoutMask = findViewById(R.id.image_mask);
         restartButton = findViewById(R.id.btn_restart);
+        shareButton = findViewById(R.id.btn_share);
         scoreButton = findViewById(R.id.submit_score_check);
         scoreView = findViewById(R.id.main_score_text);
         javaLogo = findViewById(R.id.java_logo);
@@ -214,6 +194,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             etAnswer10 = savedInstanceState.getBoolean("etAnswer10");
             etAnswer11 = savedInstanceState.getBoolean("etAnswer11");
             etAnswer12 = savedInstanceState.getBoolean("etAnswer12");
+            mailMessage = savedInstanceState.getString("mailMessage");
 
         }
 
@@ -311,6 +292,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         outState.putBoolean("etAnswer10", etAnswer10);
         outState.putBoolean("etAnswer11", etAnswer11);
         outState.putBoolean("etAnswer12", etAnswer12);
+        outState.putString("mailMessage", mailMessage);
 
     }
 
@@ -500,6 +482,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
             t.cancel();
         }
 
+        //Set the string to me sent to the mail app through sharing
+        mailMessage = getString(R.string.mail_message) + " " + score + "/12" + "\n" + getString(R.string.mail_message_2) + "\n\n" + getString(R.string.mail_message_3);
         scrollView.fullScroll(View.FOCUS_UP);
     }
 
@@ -508,7 +492,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
      */
     private void endMethod(){
         //hide java logo so the restart button doesn't go on top of it
-        javaLogo.setVisibility(View.INVISIBLE);
+        //javaLogo.setVisibility(View.INVISIBLE);
 
         //show the score in a permanent way
         scoreView.setText(getString(R.string.score) + " " + score + "/" + "12");
@@ -529,7 +513,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         scoreButton.setEnabled(false);
         isOver = true;
         restartButton.setVisibility(View.VISIBLE);
-
+        shareButton.setVisibility(View.VISIBLE);
+        theLine.setVisibility(View.VISIBLE);
 
         readArray = false;
         //Running these each time to make sure correct answers are tagged.
@@ -775,5 +760,20 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         Intent intent = getIntent();
         finish();
         startActivity(intent);
+    }
+
+    public void openAboutDialog(View view){
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    public void shareResults(View view){
+        Intent intent = new Intent();
+        intent.setData(Uri.parse("mailto:"));//only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.mail_subject));
+        intent.putExtra(Intent.EXTRA_TEXT, mailMessage);
+        if (intent.resolveActivity(getPackageManager()) != null){
+            startActivity(intent);
+        }
     }
 }
