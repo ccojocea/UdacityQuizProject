@@ -759,6 +759,22 @@
                     android:text="@string/final_score_button"
                     android:textSize="@dimen/question_font_size" />
 
+                <Button
+                    android:id="@+id/about_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:layout_marginLeft="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/layout_margin"
+                    android:background="@drawable/bg_button_select_faded"
+                    android:onClick="openAboutDialog"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="4"
+                    android:text="@string/about_button"
+                    android:textSize="@dimen/question_font_size" />
+
             </LinearLayout>
 
             <!--Mask layout to block input after ending quiz-->

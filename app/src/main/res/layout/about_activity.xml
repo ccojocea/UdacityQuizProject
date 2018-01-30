@@ -1,99 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:paddingBottom="@dimen/padding"
-    android:paddingLeft="@dimen/padding"
-    android:paddingRight="@dimen/padding"
-    android:paddingTop="@dimen/padding"
-    android:orientation="vertical">
-
-    <ImageView
-        android:id="@+id/udacity_logo_about"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/udacity500"
-        android:adjustViewBounds="true"
-        android:layout_marginBottom="@dimen/layout_margin_xs"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logo_cc_1"
-        style="@style/AboutText"
-        android:paddingRight="@dimen/padding"
-        android:paddingLeft="@dimen/padding"/>
+    android:fillViewport="true">
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingBottom="@dimen/padding"
         android:paddingLeft="@dimen/padding"
-        android:paddingRight="@dimen/padding">
+        android:paddingRight="@dimen/padding"
+        android:paddingTop="@dimen/padding"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/about_clickable_link_1"
+            android:id="@+id/about_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/shrikhand_regular"
+            android:text="@string/app_name"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="@dimen/splash_font_size_about" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorSecondaryLight"
+            android:text="@string/about_author_1"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding"
+            style="@style/AboutText"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorSecondaryLight"
+                android:text="@string/about_author_2"
+                style="@style/AboutText"
+                android:layout_marginRight="@dimen/layout_margin_xs"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_author_3_mail"
+                style="@style/AboutTextLink"
+                android:autoLink="email"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorSecondaryLight"
+                android:text="@string/about_author_4"
+                style="@style/AboutText"
+                android:layout_marginRight="@dimen/layout_margin_xs"/>
+
+            <TextView
+                android:id="@+id/about_clickable_link_author_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="to_be_replaced"
+                style="@style/AboutTextLink"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryLight"
+            android:layout_margin="@dimen/layout_margin_xs"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorSecondaryLight"
+            android:text="@string/font_license_1"
+            style="@style/AboutText"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorSecondaryLight"
+            android:text="@string/font_license_2"
+            style="@style/AboutText"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorSecondaryLight"
+                android:text="@string/font_license_31_email_address"
+                style="@style/AboutText"
+                android:layout_marginRight="@dimen/layout_margin_xs"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/font_license_32_email_address"
+                style="@style/AboutTextLink"
+                android:autoLink="email"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/font_license_4_SIL"
+            style="@style/AboutText"
+            android:paddingLeft="@dimen/padding" />
+
+        <TextView
+            android:id="@+id/about_font_clickable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="to_be_replaced"
             style="@style/AboutTextLink"
-            android:layout_marginRight="@dimen/layout_margin_xs"/>
+            android:paddingLeft="@dimen/padding"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryLight"
+            android:layout_margin="@dimen/layout_margin_xs"/>
+
+        <ImageView
+            android:id="@+id/udacity_logo_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/udacity500"
+            android:adjustViewBounds="true"
+            android:layout_marginBottom="@dimen/layout_margin_xs"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/logo_cc_3"
-            style="@style/AboutText" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingRight="@dimen/padding"
-        android:paddingLeft="@dimen/padding">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/logo_cc_4_source"
+            android:text="@string/logo_cc_1"
             style="@style/AboutText"
-            android:layout_marginRight="@dimen/layout_margin_xs" />
+            android:paddingRight="@dimen/padding"
+            android:paddingLeft="@dimen/padding"/>
 
-        <TextView
-            android:id="@+id/about_clickable_link_2"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="to_be_replaced"
-            style="@style/AboutTextLink" />
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding">
+
+            <TextView
+                android:id="@+id/about_clickable_link_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="to_be_replaced"
+                style="@style/AboutTextLink"
+                android:layout_marginRight="@dimen/layout_margin_xs"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logo_cc_3"
+                style="@style/AboutText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/padding"
+            android:paddingLeft="@dimen/padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logo_cc_4_source"
+                style="@style/AboutText"
+                android:layout_marginRight="@dimen/layout_margin_xs" />
+
+            <TextView
+                android:id="@+id/about_clickable_link_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="to_be_replaced"
+                style="@style/AboutTextLink" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/padding"
+            android:paddingLeft="@dimen/padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logo_cc_6_licensed"
+                style="@style/AboutText"
+                android:layout_marginRight="@dimen/layout_margin_xs"/>
+
+            <TextView
+                android:id="@+id/about_clickable_link_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="to_be_replaced"
+                style="@style/AboutTextLink" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/about_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:layout_marginLeft="@dimen/layout_margin"
+            android:layout_marginRight="@dimen/layout_margin"
+            android:background="@drawable/bg_button_select_faded"
+            android:onClick="goBack"
+            android:shadowColor="@color/colorPrimaryDark"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="4"
+            android:text="@string/go_back"
+            android:textSize="@dimen/question_font_size" />
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingRight="@dimen/padding"
-        android:paddingLeft="@dimen/padding">
+</ScrollView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/logo_cc_6_licensed"
-            style="@style/AboutText"
-            android:layout_marginRight="@dimen/layout_margin_xs"/>
-
-        <TextView
-            android:id="@+id/about_clickable_link_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="to_be_replaced"
-            style="@style/AboutTextLink" />
-    </LinearLayout>
-
-
-</LinearLayout>

@@ -19,20 +19,29 @@
     <string name="restart_button">Restart Quiz</string>
     <string name="splash_author_name">by @CosminC</string>
     <string name="about_button">About</string>
+    <string name="go_back">Back to quiz</string>
+    <string name="share_button">Share results</string>
 
+    <string name="about_author_1">Copyright &#169; 2018 Cosmin Cojocea</string>
+    <string name="about_author_2">Email:</string>
+    <string name="about_author_3_mail">ccojocea@gmail.com</string>
+    <string name="about_author_4">Licensed under: </string>
+    <string name="about_author_5">&lt;a href=https://tldrlegal.com/license/mit-license#fulltext>The MIT License&lt;/a></string>
+
+    <string name="font_license_1">The Shrikhand font:</string>
+    <string name="font_license_2">Copyright &#169; 2015 Jonny Pinhorn</string>
+    <string name="font_license_31_email_address">Email:</string>
+    <string name="font_license_32_email_address" translatable="false">jonpinghorn.typedesign@gmail.com</string>
+    <string name="font_license_4_SIL">This Font Software is licensed under the: </string>
+    <string name="font_license_5_web">&lt;a href=http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL_web>SIL Open Font License, Version 1.1&lt;/a></string>
+    
     <string name="logo_cc_1">Udacity logo and application icon are modified versions of:</string>
     <string name="logo_cc_2_link">&lt;a href=https://commons.wikimedia.org/wiki/File:Udacity_logo.png>The logo of Udacity&lt;/a></string>
     <string name="logo_cc_3">by Sebastian Thrun.</string>
     <string name="logo_cc_4_source">Source:</string>
-    <string name="logo_cc_5_link" translatable="false">&lt;a href=www.udacity.com>Udacity&lt;/a></string>
+    <string name="logo_cc_5_link" translatable="false">&lt;a href=http://www.udacity.com>Udacity&lt;/a></string>
     <string name="logo_cc_6_licensed">Licensed under:</string>
     <string name="logo_cc_7_link">&lt;a href=https://creativecommons.org/licenses/by-sa/4.0/deed.en/>CC Attribution-Share Alike 4.0&lt;/a></string>
-
-    <string name="font_license_1">The Shrikhand font:</string>
-    <string name="font_license_2">Copyright (c) 2015 Jonny Pinhorn</string>
-    <string name="font_license_3_email_address" translatable="false">jonpinghorn.typedesign@gmail.com</string>
-    <string name="font_license_4_SIL">This Font Software is licensed under the SIL Open Font License, Version 1.1</string>
-    <string name="font_license_web">http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL_web</string>
 
     <string name="toast_all">Amazing! You\'ve got a perfect 12 out of 12 score!</string>
     <string name="toast_none">Not even one correct answer? Did you even try?</string>

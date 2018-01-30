@@ -36,7 +36,7 @@
 
     <style name="AboutTextLink">
         <item name="android:textColorLink">@color/colorSecondaryDark</item>
-        <item name="android:textColorLinkInverse">@color/colorSecondaryLight</item>
+        <item name="android:textColor">@color/colorSecondaryDark</item>
         <item name="android:clickable">true</item>
         <item name="android:textSize">@dimen/about_font_size</item>
         <item name="android:layout_marginBottom">@dimen/layout_margin_xs</item>

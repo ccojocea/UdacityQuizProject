@@ -2,6 +2,7 @@
 <resources>
     <dimen name="splash_font_size">56sp</dimen>
     <dimen name="splash_font_size_xs">40sp</dimen>
+    <dimen name="splash_font_size_about">48sp</dimen>
     <dimen name="vertical_title_font_size">24sp</dimen>
     <dimen name="question_font_size">20sp</dimen>
     <dimen name="answer_font_size">16sp</dimen>

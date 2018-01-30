@@ -58,6 +58,20 @@
         android:textSize="@dimen/answer_font_size"
         android:visibility="gone"/>
 
+    <Button
+        android:id="@+id/btn_share"
+        android:layout_below="@id/btn_restart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginLeft="@dimen/layout_margin"
+        android:layout_marginRight="@dimen/layout_margin"
+        android:background="@drawable/bg_button_select_faded"
+        android:onClick="shareResults"
+        android:text="@string/share_button"
+        android:textSize="@dimen/answer_font_size"
+        android:visibility="gone"/>
+
     <ScrollView
         android:id="@+id/base_scroll_view"
         android:layout_width="match_parent"
@@ -765,10 +779,6 @@
                     android:layout_marginRight="@dimen/layout_margin"
                     android:background="@drawable/bg_button_select_faded"
                     android:onClick="openAboutDialog"
-                    android:shadowColor="@color/colorSecondaryDark"
-                    android:shadowDx="2"
-                    android:shadowDy="2"
-                    android:shadowRadius="4"
                     android:text="@string/about_button"
                     android:textSize="@dimen/question_font_size" />
 
