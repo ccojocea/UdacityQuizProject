@@ -32,7 +32,7 @@
     <string name="font_license_2">Copyright &#169; 2015 Jonny Pinhorn</string>
     <string name="font_license_31_email_address">Email:</string>
     <string name="font_license_32_email_address" translatable="false">jonpinghorn.typedesign@gmail.com</string>
-    <string name="font_license_4_SIL">This Font Software is licensed under the: </string>
+    <string name="font_license_4_SIL">This Font Software is licensed under: </string>
     <string name="font_license_5_web">&lt;a href=http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL_web>SIL Open Font License, Version 1.1&lt;/a></string>
     
     <string name="logo_cc_1">Udacity logo and application icon are modified versions of:</string>
@@ -67,5 +67,10 @@
         <item>Partial grading 1</item>
         <item>Partial grading 2</item>
     </string-array>
+
+    <string name="mail_subject">My score for Java Quiz</string>
+    <string name="mail_message">I just played Java Quiz and I got a score of:</string>
+    <string name="mail_message_2">Can you do better?</string>
+    <string name="mail_message_3">Soon available on Google Play (Maybe!)</string>
 
 </resources>

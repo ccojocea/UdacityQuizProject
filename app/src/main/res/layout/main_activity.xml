@@ -66,17 +66,26 @@
         android:layout_marginTop="@dimen/layout_margin_xs"
         android:layout_marginLeft="@dimen/layout_margin"
         android:layout_marginRight="@dimen/layout_margin"
+        android:layout_marginBottom="@dimen/layout_margin_xs"
         android:background="@drawable/bg_button_select_faded"
         android:onClick="shareResults"
         android:text="@string/share_button"
         android:textSize="@dimen/answer_font_size"
         android:visibility="gone"/>
 
+    <View
+        android:id="@+id/buttons_view_line"
+        android:layout_below="@id/btn_share"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorSecondaryDark"
+        android:visibility="gone"/>
+
     <ScrollView
         android:id="@+id/base_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/separator_line_view"
+        android:layout_below="@id/buttons_view_line"
         android:background="@color/colorPrimary"
         android:fillViewport="true">
 
