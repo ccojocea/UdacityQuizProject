@@ -2,831 +2,873 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/frame_layout"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
-
-
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/parent_relative_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="@dimen/layout_margin_xxs">
+    android:layout_height="match_parent">
 
-
-    <TextView
-        android:id="@+id/main_timer_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/layout_margin"
-        android:text=""
-        android:textColor="@color/colorSecondaryLight"
-        android:textSize="@dimen/question_font_size" />
-
-    <View
-        android:id="@+id/separator_line_view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/main_timer_text"
-        android:background="@color/colorSecondaryDark">
-    </View>
-
-    <TextView
-        android:id="@+id/main_score_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="@dimen/layout_margin"
-        android:text=""
-        android:textColor="@color/colorSecondaryLight"
-        android:textSize="@dimen/question_font_size" />
-
-    <Button
-        android:id="@+id/btn_restart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/separator_line_view"
-        android:layout_marginTop="@dimen/layout_margin_xs"
-        android:layout_marginRight="@dimen/layout_margin"
-        android:layout_marginLeft="@dimen/layout_margin"
-        android:background="@drawable/bg_button_select"
-        android:onClick="restartGame"
-        android:shadowColor="@color/colorSecondaryDark"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="4"
-        android:text="@string/restart_button"
-        android:textSize="@dimen/answer_font_size"
-        android:visibility="gone"/>
-
-    <Button
-        android:id="@+id/btn_share"
-        android:layout_below="@id/btn_restart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/layout_margin_xs"
-        android:layout_marginLeft="@dimen/layout_margin"
-        android:layout_marginRight="@dimen/layout_margin"
-        android:layout_marginBottom="@dimen/layout_margin_xs"
-        android:background="@drawable/bg_button_select_faded"
-        android:onClick="shareResults"
-        android:text="@string/share_button"
-        android:textSize="@dimen/answer_font_size"
-        android:visibility="gone"/>
-
-    <View
-        android:id="@+id/buttons_view_line"
-        android:layout_below="@id/btn_share"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorSecondaryDark"
-        android:visibility="gone"/>
-
-    <ScrollView
-        android:id="@+id/base_scroll_view"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/parent_relative_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/buttons_view_line"
         android:background="@color/colorPrimary"
-        android:fillViewport="true">
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="@dimen/layout_margin_xxs">
 
-        <RelativeLayout
-            android:id="@+id/top_element"
+
+        <TextView
+            android:id="@+id/main_timer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/layout_margin"
+            android:text=""
+            android:textColor="@color/colorSecondaryLight"
+            android:textSize="@dimen/question_font_size" />
+
+        <View
+            android:id="@+id/separator_line_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="1dp"
+            android:layout_below="@id/main_timer_text"
+            android:background="@color/colorSecondaryDark">
 
-            <LinearLayout
-                android:id="@+id/base_layout"
+        </View>
+
+        <TextView
+            android:id="@+id/main_score_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/layout_margin"
+            android:text=""
+            android:textColor="@color/colorSecondaryLight"
+            android:textSize="@dimen/question_font_size" />
+
+        <Button
+            android:id="@+id/btn_restart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/separator_line_view"
+            android:layout_marginLeft="@dimen/layout_margin"
+            android:layout_marginRight="@dimen/layout_margin"
+            android:layout_marginTop="@dimen/layout_margin_xs"
+            android:background="@drawable/bg_button_select"
+            android:onClick="restartGame"
+            android:shadowColor="@color/colorSecondaryDark"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="4"
+            android:text="@string/restart_button"
+            android:textSize="@dimen/answer_font_size"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_restart"
+            android:layout_marginBottom="@dimen/layout_margin_xs"
+            android:layout_marginLeft="@dimen/layout_margin"
+            android:layout_marginRight="@dimen/layout_margin"
+            android:layout_marginTop="@dimen/layout_margin_xs"
+            android:background="@drawable/bg_button_select_faded"
+            android:onClick="shareResults"
+            android:text="@string/share_button"
+            android:textSize="@dimen/answer_font_size"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/buttons_view_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/btn_share"
+            android:background="@color/colorSecondaryDark"
+            android:visibility="gone" />
+
+        <ScrollView
+            android:id="@+id/base_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/buttons_view_line"
+            android:background="@color/colorPrimary"
+            android:fillViewport="true">
+
+            <!--This RelativeLayout has 2 Linearlayout children:-->
+            <!--First contains the questions, while the second is the mask-->
+            <RelativeLayout
+                android:id="@+id/top_element"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/java_logo"
-                    android:layout_marginTop="@dimen/layout_margin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/java_logo_low_contrast_xxs"
-                    android:layout_gravity="center"/>
-
-                <TextView
-                    android:id="@+id/textView"
+                <!--Base layout for questions-->
+                <LinearLayout
+                    android:id="@+id/base_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/shrikhand_regular"
-                    android:text="@string/app_name"
-                    android:textAllCaps="true"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimaryLight"
-                    android:textSize="@dimen/splash_font_size_xs" />
+                    android:orientation="vertical">
 
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPaddingBottom="@dimen/padding_xs"
-                    card_view:contentPaddingLeft="@dimen/padding"
-                    card_view:contentPaddingRight="@dimen/padding"
-                    card_view:contentPaddingTop="@dimen/padding_xs">
+                    <ImageView
+                        android:id="@+id/java_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/layout_margin"
+                        android:src="@drawable/java_logo_low_contrast_xxs" />
 
                     <TextView
+                        android:id="@+id/textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/single_answer"
-                        android:textColor="@color/colorSecondary"
-                        android:textSize="@dimen/note_font_size" />
+                        android:fontFamily="@font/shrikhand_regular"
+                        android:text="@string/app_name"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textSize="@dimen/splash_font_size_xs" />
 
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
-
-                    <LinearLayout
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/question1_text"
-                            style="@style/QuestionText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/q1" />
-
-                        <RadioGroup
-                            android:id="@+id/q1_radio_group"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <RadioButton
-                                android:id="@+id/q1_a1_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a11" />
-
-                            <RadioButton
-                                android:id="@+id/q1_a2_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a12" />
-
-                            <RadioButton
-                                android:id="@+id/q1_a3_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a13" />
-
-                            <RadioButton
-                                android:id="@+id/q1_a4_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a14" />
-
-                        </RadioGroup>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/question2_text"
-                            style="@style/QuestionText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/q2" />
-
-                        <ImageView
-                            android:id="@+id/img_question_2"
-                            android:src="@drawable/question2"
-                            style="@style/QuestionImage"/>
-
-                        <RadioGroup
-                            android:id="@+id/q2_radio_group"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <RadioButton
-                                android:id="@+id/q2_a1_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a21" />
-
-                            <RadioButton
-                                android:id="@+id/q2_a2_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a22" />
-
-                            <RadioButton
-                                android:id="@+id/q2_a3_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a23" />
-
-                            <RadioButton
-                                android:id="@+id/q2_a4_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a24" />
-
-                        </RadioGroup>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-
-                        <TextView
-                            android:id="@+id/question3_text"
-                            style="@style/QuestionText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/q3" />
-
-                        <ImageView
-                            android:id="@+id/img_question_3"
-                            android:src="@drawable/question3"
-                            style="@style/QuestionImage"/>
-
-                        <RadioGroup
-                            android:id="@+id/q3_radio_group"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <RadioButton
-                                android:id="@+id/q3_a1_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a31" />
-
-                            <RadioButton
-                                android:id="@+id/q3_a2_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a32" />
-
-                            <RadioButton
-                                android:id="@+id/q3_a3_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a33" />
-
-                            <RadioButton
-                                android:id="@+id/q3_a4_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a34" />
-
-                        </RadioGroup>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/question4_text"
-                            style="@style/QuestionText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/q4" />
-
-                        <ImageView
-                            android:id="@+id/img_question_4"
-                            android:src="@drawable/question4"
-                            style="@style/QuestionImage"/>
-
-                        <RadioGroup
-                            android:id="@+id/q4_radio_group"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <RadioButton
-                                android:id="@+id/q4_a1_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a41" />
-
-                            <RadioButton
-                                android:id="@+id/q4_a2_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a42" />
-
-                            <RadioButton
-                                android:id="@+id/q4_a3_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a43" />
-
-                            <RadioButton
-                                android:id="@+id/q4_a4_radio_button"
-                                style="@style/AnswerText"
-                                android:text="@string/a44" />
-
-                        </RadioGroup>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPaddingBottom="@dimen/padding_xs"
-                    card_view:contentPaddingLeft="@dimen/padding"
-                    card_view:contentPaddingRight="@dimen/padding"
-                    card_view:contentPaddingTop="@dimen/padding_xs">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPaddingBottom="@dimen/padding_xs"
+                        card_view:contentPaddingLeft="@dimen/padding"
+                        card_view:contentPaddingRight="@dimen/padding"
+                        card_view:contentPaddingTop="@dimen/padding_xs">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/multiple_answer"
+                            android:text="@string/single_answer"
                             android:textColor="@color/colorSecondary"
-                            android:textSize="@dimen/note_font_size"
-                            android:layout_marginBottom="@dimen/layout_margin_xs"/>
+                            android:textSize="@dimen/note_font_size" />
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/question1_text"
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q1" />
+
+                            <RadioGroup
+                                android:id="@+id/q1_radio_group"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/q1_a1_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a11" />
+
+                                <RadioButton
+                                    android:id="@+id/q1_a2_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a12" />
+
+                                <RadioButton
+                                    android:id="@+id/q1_a3_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a13" />
+
+                                <RadioButton
+                                    android:id="@+id/q1_a4_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a14" />
+
+                            </RadioGroup>
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/question2_text"
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q2" />
+
+                            <ImageView
+                                android:id="@+id/img_question_2"
+                                style="@style/QuestionImage"
+                                android:src="@drawable/question2" />
+
+                            <RadioGroup
+                                android:id="@+id/q2_radio_group"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/q2_a1_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a21" />
+
+                                <RadioButton
+                                    android:id="@+id/q2_a2_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a22" />
+
+                                <RadioButton
+                                    android:id="@+id/q2_a3_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a23" />
+
+                                <RadioButton
+                                    android:id="@+id/q2_a4_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a24" />
+
+                            </RadioGroup>
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/question3_text"
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q3" />
+
+                            <ImageView
+                                android:id="@+id/img_question_3"
+                                style="@style/QuestionImage"
+                                android:src="@drawable/question3" />
+
+                            <RadioGroup
+                                android:id="@+id/q3_radio_group"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/q3_a1_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a31" />
+
+                                <RadioButton
+                                    android:id="@+id/q3_a2_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a32" />
+
+                                <RadioButton
+                                    android:id="@+id/q3_a3_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a33" />
+
+                                <RadioButton
+                                    android:id="@+id/q3_a4_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a34" />
+
+                            </RadioGroup>
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/question4_text"
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q4" />
+
+                            <ImageView
+                                android:id="@+id/img_question_4"
+                                style="@style/QuestionImage"
+                                android:src="@drawable/question4" />
+
+                            <RadioGroup
+                                android:id="@+id/q4_radio_group"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/q4_a1_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a41" />
+
+                                <RadioButton
+                                    android:id="@+id/q4_a2_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a42" />
+
+                                <RadioButton
+                                    android:id="@+id/q4_a3_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a43" />
+
+                                <RadioButton
+                                    android:id="@+id/q4_a4_radio_button"
+                                    style="@style/AnswerText"
+                                    android:text="@string/a44" />
+
+                            </RadioGroup>
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPaddingBottom="@dimen/padding_xs"
+                        card_view:contentPaddingLeft="@dimen/padding"
+                        card_view:contentPaddingRight="@dimen/padding"
+                        card_view:contentPaddingTop="@dimen/padding_xs">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/layout_margin_xs"
+                                android:text="@string/multiple_answer"
+                                android:textColor="@color/colorSecondary"
+                                android:textSize="@dimen/note_font_size" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/layout_margin_xs"
+                                android:text="@string/multiple_answer_choices"
+                                android:textColor="@color/colorSecondary"
+                                android:textSize="@dimen/note_font_size"
+                                android:textStyle="italic" />
+
+                            <Spinner
+                                android:id="@+id/spinner_multiple_choice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:entries="@array/multiple_choice"
+                                android:prompt="@string/grading_type"></Spinner>
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/question5_text"
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q5" />
+
+                            <CheckBox
+                                android:id="@+id/q5_a1_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a51" />
+
+                            <CheckBox
+                                android:id="@+id/q5_a2_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a52" />
+
+                            <CheckBox
+                                android:id="@+id/q5_a3_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a53" />
+
+                            <CheckBox
+                                android:id="@+id/q5_a4_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a54" />
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/question6_text"
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q6" />
+
+                            <CheckBox
+                                android:id="@+id/q6_a1_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a61" />
+
+                            <CheckBox
+                                android:id="@+id/q6_a2_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a62" />
+
+                            <CheckBox
+                                android:id="@+id/q6_a3_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a63" />
+
+                            <CheckBox
+                                android:id="@+id/q6_a4_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a64" />
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/question7_text"
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q7" />
+
+                            <ImageView
+                                android:id="@+id/img_question_7"
+                                style="@style/QuestionImage"
+                                android:src="@drawable/question7" />
+
+                            <CheckBox
+                                android:id="@+id/q7_a1_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a71" />
+
+                            <CheckBox
+                                android:id="@+id/q7_a2_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a72" />
+
+                            <CheckBox
+                                android:id="@+id/q7_a3_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a73" />
+
+                            <CheckBox
+                                android:id="@+id/q7_a4_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a74" />
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/question8_text"
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q8" />
+
+                            <CheckBox
+                                android:id="@+id/q8_a1_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a81" />
+
+                            <CheckBox
+                                android:id="@+id/q8_a2_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a82" />
+
+                            <CheckBox
+                                android:id="@+id/q8_a3_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a83" />
+
+                            <CheckBox
+                                android:id="@+id/q8_a4_checkbox"
+                                style="@style/AnswerText"
+                                android:text="@string/a84" />
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPaddingBottom="@dimen/padding_xs"
+                        card_view:contentPaddingLeft="@dimen/padding"
+                        card_view:contentPaddingRight="@dimen/padding"
+                        card_view:contentPaddingTop="@dimen/padding_xs">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/multiple_answer_choices"
+                            android:text="@string/edited_answer"
                             android:textColor="@color/colorSecondary"
-                            android:textSize="@dimen/note_font_size"
-                            android:textStyle="italic"
-                            android:layout_marginBottom="@dimen/layout_margin_xs"/>
+                            android:textSize="@dimen/note_font_size" />
 
-                        <Spinner
-                            android:id="@+id/spinner_multiple_choice"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:entries="@array/multiple_choice"
-                            android:prompt="@string/grading_type">
-                        </Spinner>
+                    </android.support.v7.widget.CardView>
 
-                    </LinearLayout>
-
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
-
-                    <LinearLayout
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
 
-                        <TextView
-                            android:id="@+id/question5_text"
-                            style="@style/QuestionText"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/q5" />
+                            android:orientation="vertical">
 
-                        <CheckBox
-                            android:id="@+id/q5_a1_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a51" />
+                            <TextView
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q9" />
 
-                        <CheckBox
-                            android:id="@+id/q5_a2_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a52" />
+                            <ImageView
+                                android:id="@+id/img_question_9"
+                                style="@style/QuestionImage"
+                                android:src="@drawable/question9" />
 
-                        <CheckBox
-                            android:id="@+id/q5_a3_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a53" />
+                            <TextView
+                                android:id="@+id/text_view_q9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/layout_margin_xxs"
+                                android:text=""
+                                android:textColor="@color/colorSecondaryLight" />
 
-                        <CheckBox
-                            android:id="@+id/q5_a4_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a54" />
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
+                            <EditText
+                                android:id="@+id/q9_edit_text"
+                                style="@style/EditTextStyle"
+                                android:hint="@string/h9"
+                                android:imeOptions="actionDone" />
 
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
 
-                    <LinearLayout
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
 
-                        <TextView
-                            android:id="@+id/question6_text"
-                            style="@style/QuestionText"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/q6" />
+                            android:orientation="vertical">
 
-                        <CheckBox
-                            android:id="@+id/q6_a1_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a61" />
+                            <TextView
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q10" />
 
-                        <CheckBox
-                            android:id="@+id/q6_a2_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a62" />
+                            <ImageView
+                                android:id="@+id/img_question_10"
+                                style="@style/QuestionImage"
+                                android:src="@drawable/question10" />
 
-                        <CheckBox
-                            android:id="@+id/q6_a3_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a63" />
+                            <TextView
+                                android:id="@+id/text_view_q10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/layout_margin_xxs"
+                                android:text=""
+                                android:textColor="@color/colorSecondaryLight" />
 
-                        <CheckBox
-                            android:id="@+id/q6_a4_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a64" />
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
+                            <EditText
+                                android:id="@+id/q10_edit_text"
+                                style="@style/EditTextStyle"
+                                android:hint="@string/h10"
+                                android:imeOptions="actionDone" />
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
-
-                    <LinearLayout
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
 
-                        <TextView
-                            android:id="@+id/question7_text"
-                            style="@style/QuestionText"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/q7" />
+                            android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/img_question_7"
-                            android:src="@drawable/question7"
-                            style="@style/QuestionImage"/>
+                            <TextView
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q11" />
 
-                        <CheckBox
-                            android:id="@+id/q7_a1_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a71" />
+                            <ImageView
+                                android:id="@+id/img_question_11"
+                                style="@style/QuestionImage"
+                                android:src="@drawable/question11" />
 
-                        <CheckBox
-                            android:id="@+id/q7_a2_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a72" />
+                            <TextView
+                                android:id="@+id/text_view_q11"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/layout_margin_xxs"
+                                android:text=""
+                                android:textColor="@color/colorSecondaryLight" />
 
-                        <CheckBox
-                            android:id="@+id/q7_a3_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a73" />
+                            <EditText
+                                android:id="@+id/q11_edit_text"
+                                style="@style/EditTextStyle"
+                                android:hint="@string/h11"
+                                android:imeOptions="actionDone" />
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
 
-                        <CheckBox
-                            android:id="@+id/q7_a4_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a74" />
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
-
-                    <LinearLayout
+                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+                        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+                        card_view:cardElevation="@dimen/card_view_elevation"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="@dimen/padding">
 
-                        <TextView
-                            android:id="@+id/question8_text"
-                            style="@style/QuestionText"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/q8" />
+                            android:orientation="vertical">
 
-                        <CheckBox
-                            android:id="@+id/q8_a1_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a81" />
+                            <TextView
+                                style="@style/QuestionText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/q12" />
 
-                        <CheckBox
-                            android:id="@+id/q8_a2_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a82" />
+                            <TextView
+                                android:id="@+id/text_view_q12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/layout_margin_xxs"
+                                android:text=""
+                                android:textColor="@color/colorSecondaryLight" />
 
-                        <CheckBox
-                            android:id="@+id/q8_a3_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a83" />
+                            <EditText
+                                android:id="@+id/q12_edit_text"
+                                style="@style/EditTextStyle"
+                                android:hint="@string/h12"
+                                android:imeOptions="actionDone" />
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
 
-                        <CheckBox
-                            android:id="@+id/q8_a4_checkbox"
-                            style="@style/AnswerText"
-                            android:text="@string/a84" />
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPaddingBottom="@dimen/padding_xs"
-                    card_view:contentPaddingLeft="@dimen/padding"
-                    card_view:contentPaddingRight="@dimen/padding"
-                    card_view:contentPaddingTop="@dimen/padding_xs">
-
-                    <TextView
+                    <Button
+                        android:id="@+id/submit_score_check"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/edited_answer"
-                        android:textColor="@color/colorSecondary"
-                        android:textSize="@dimen/note_font_size" />
+                        android:layout_marginLeft="@dimen/layout_margin"
+                        android:layout_marginRight="@dimen/layout_margin"
+                        android:layout_marginTop="@dimen/layout_margin"
+                        android:background="@drawable/bg_button_select"
+                        android:onClick="checkAnswers"
+                        android:shadowColor="@color/colorSecondaryDark"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:shadowRadius="4"
+                        android:text="@string/final_score_button"
+                        android:textSize="@dimen/question_font_size" />
 
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
-
-                    <LinearLayout
+                    <Button
+                        android:id="@+id/about_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_marginLeft="@dimen/layout_margin"
+                        android:layout_marginRight="@dimen/layout_margin"
+                        android:layout_marginTop="@dimen/layout_margin_xs"
+                        android:background="@drawable/bg_button_select_faded"
+                        android:onClick="openAboutDialog"
+                        android:text="@string/about_button"
+                        android:textSize="@dimen/question_font_size" />
 
-                        <TextView
-                            style="@style/QuestionText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/q9" />
+                </LinearLayout>
 
-                        <ImageView
-                            android:id="@+id/img_question_9"
-                            android:src="@drawable/question9"
-                            style="@style/QuestionImage"/>
-
-                        <TextView
-                            android:id="@+id/text_view_q9"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/layout_margin_xxs"
-                            android:text=""
-                            android:textColor="@color/colorSecondaryLight" />
-
-                        <EditText
-                            android:id="@+id/q9_edit_text"
-                            style="@style/EditTextStyle"
-                            android:hint="@string/h9"
-                            android:imeOptions="actionDone" />
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                <!--Mask layout to block input after ending quiz-->
+                <LinearLayout
+                    android:id="@+id/image_mask"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
+                    android:layout_height="match_parent"
+                    android:alpha="0.1"
+                    android:background="#B0000000"
+                    android:onClick="doNothingClick"
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                </LinearLayout>
 
-                        <TextView
-                            style="@style/QuestionText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/q10" />
+            </RelativeLayout>
 
-                        <ImageView
-                            android:id="@+id/img_question_10"
-                            android:src="@drawable/question10"
-                            style="@style/QuestionImage"/>
+        </ScrollView>
 
-                        <TextView
-                            android:id="@+id/text_view_q10"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/layout_margin_xxs"
-                            android:text=""
-                            android:textColor="@color/colorSecondaryLight" />
-
-                        <EditText
-                            android:id="@+id/q10_edit_text"
-                            style="@style/EditTextStyle"
-                            android:hint="@string/h10"
-                            android:imeOptions="actionDone" />
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/QuestionText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/q11" />
-
-                        <ImageView
-                            android:id="@+id/img_question_11"
-                            android:src="@drawable/question11"
-                            style="@style/QuestionImage"/>
-
-                        <TextView
-                            android:id="@+id/text_view_q11"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/layout_margin_xxs"
-                            android:text=""
-                            android:textColor="@color/colorSecondaryLight" />
-
-                        <EditText
-                            android:id="@+id/q11_edit_text"
-                            style="@style/EditTextStyle"
-                            android:hint="@string/h11"
-                            android:imeOptions="actionDone" />
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="@color/colorPrimaryDark"
-                    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-                    card_view:cardElevation="@dimen/card_view_elevation"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:contentPadding="@dimen/padding">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/QuestionText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/q12" />
-
-                        <TextView
-                            android:id="@+id/text_view_q12"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/layout_margin_xxs"
-                            android:text=""
-                            android:textColor="@color/colorSecondaryLight" />
-
-                        <EditText
-                            android:id="@+id/q12_edit_text"
-                            style="@style/EditTextStyle"
-                            android:hint="@string/h12"
-                            android:imeOptions="actionDone" />
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <Button
-                    android:id="@+id/submit_score_check"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/layout_margin"
-                    android:layout_marginLeft="@dimen/layout_margin"
-                    android:layout_marginRight="@dimen/layout_margin"
-                    android:background="@drawable/bg_button_select"
-                    android:onClick="checkAnswers"
-                    android:shadowColor="@color/colorSecondaryDark"
-                    android:shadowDx="2"
-                    android:shadowDy="2"
-                    android:shadowRadius="4"
-                    android:text="@string/final_score_button"
-                    android:textSize="@dimen/question_font_size" />
-
-                <Button
-                    android:id="@+id/about_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/layout_margin_xs"
-                    android:layout_marginLeft="@dimen/layout_margin"
-                    android:layout_marginRight="@dimen/layout_margin"
-                    android:background="@drawable/bg_button_select_faded"
-                    android:onClick="openAboutDialog"
-                    android:text="@string/about_button"
-                    android:textSize="@dimen/question_font_size" />
-
-            </LinearLayout>
-
-            <!--Mask layout to block input after ending quiz-->
-            <LinearLayout
-                android:id="@+id/image_mask"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:alpha="0.1"
-                android:background="#B0000000"
-                android:onClick="doNothingClick"
-                android:orientation="vertical"
-                android:visibility="gone">
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </ScrollView>
-
-</RelativeLayout>
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/zoom_question_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:elevation="1dp"
-        android:src="@drawable/question2"
+        android:src="@drawable/question2_border"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/zoom_question_3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/question3_border"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/zoom_question_4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/question4_border"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/zoom_question_7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/question7_border"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/zoom_question_9"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/question9_border"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/zoom_question_10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/question10_border"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/zoom_question_11"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/question11_border"
         android:visibility="gone" />
 
 </FrameLayout>

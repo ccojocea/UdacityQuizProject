@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     Toast quizToast;
 
     //Question ImageViews
-    ImageView imgQuestion2;
+    ImageView imgQuestion2, imgQuestion3, imgQuestion4, imgQuestion7, imgQuestion9, imgQuestion10, imgQuestion11;
 
     //Views related to answers:
     //Single Answer Views
@@ -124,6 +124,12 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         javaLogo = findViewById(R.id.java_logo);
         //find ImageViews from questions
         imgQuestion2 = findViewById(R.id.img_question_2);
+        imgQuestion3 = findViewById(R.id.img_question_3);
+        imgQuestion4 = findViewById(R.id.img_question_4);
+        imgQuestion7 = findViewById(R.id.img_question_7);
+        imgQuestion9 = findViewById(R.id.img_question_9);
+        imgQuestion10 = findViewById(R.id.img_question_10);
+        imgQuestion11 = findViewById(R.id.img_question_11);
         //find each textview for solutions on edited answer questions
         textView9 = findViewById(R.id.text_view_q9);
         textView10 = findViewById(R.id.text_view_q10);
@@ -154,10 +160,47 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         //the base scrollview
         scrollView = findViewById(R.id.base_scroll_view);
 
+        //Add onClick listeners for question images for zoom purposes
         imgQuestion2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                zoomImageFromThumb(imgQuestion2, R.drawable.question2);
+                zoomImageFromThumb(imgQuestion2, R.drawable.question2_border, R.id.zoom_question_2);
+            }
+        });
+        imgQuestion3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zoomImageFromThumb(imgQuestion3, R.drawable.question3_border, R.id.zoom_question_3);
+            }
+        });
+        imgQuestion4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zoomImageFromThumb(imgQuestion4, R.drawable.question4_border, R.id.zoom_question_4);
+            }
+        });
+        imgQuestion7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zoomImageFromThumb(imgQuestion7, R.drawable.question7_border, R.id.zoom_question_7);
+            }
+        });
+        imgQuestion9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zoomImageFromThumb(imgQuestion9, R.drawable.question9_border, R.id.zoom_question_9);
+            }
+        });
+        imgQuestion10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zoomImageFromThumb(imgQuestion10, R.drawable.question10_border, R.id.zoom_question_10);
+            }
+        });
+        imgQuestion11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zoomImageFromThumb(imgQuestion11, R.drawable.question11_border, R.id.zoom_question_11);
             }
         });
 
@@ -228,7 +271,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
 
     }
 
-    private void zoomImageFromThumb(final View thumbView, int imageResId){
+    //Zoom animation when clicking on images
+    private void zoomImageFromThumb(final View thumbView, int imageResId, int id){
         // If there's an animation in progress, cancel it
         // immediately and proceed with this one.
         if (mCurrentAnimator != null) {
@@ -236,8 +280,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         }
 
         // Load the high-resolution "zoomed-in" image.
-        final ImageView expandedImageView = (ImageView) findViewById(
-                R.id.zoom_question_2);
+        final ImageView expandedImageView = (ImageView) findViewById(id);
         expandedImageView.setImageResource(imageResId);
 
         // Calculate the starting and ending bounds for the zoomed-in image.
@@ -282,7 +325,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         // Hide the thumbnail and show the zoomed-in view. When the animation
         // begins, it will position the zoomed-in view in the place of the
         // thumbnail.
-        thumbView.setAlpha(0f);
+        thumbView.setAlpha(0.2f);
         expandedImageView.setVisibility(View.VISIBLE);
 
         // Set the pivot point for SCALE_X and SCALE_Y transformations
