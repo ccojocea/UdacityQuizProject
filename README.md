@@ -1,6 +1,11 @@
 # UdacityQuizProject
 Udacity Project 3 - Quiz App
 
+Changes 31.01.2018:
+- Added About page with credits
+- Implemented a way to share your results
+- Implemented zoom animation for all question images
+
 What you can expect to find in this app:
 - 12 questions, 4 single choice (RadioGroup/RadioButton), 4 multiple choice (CheckBox), 4 typed answers (EditText)
 - Some of the questions have code displayed inside ImageView, while others just have a string based question.
@@ -20,3 +25,7 @@ What you can expect to find in this app:
 ![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_3.png)
 ![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_4.png)
 ![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_5.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_6.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_7.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_8.png)
+![alt text](https://raw.githubusercontent.com/ccojocea/UdacityQuizProject/master/extras/device_9.png)
