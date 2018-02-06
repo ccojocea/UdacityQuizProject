@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by ccojo on 1/20/2018.
  */
 
-public class Quiz {
+class Quiz {
     public ArrayList<SingleAnswerQuestion> singleAnswerQuestions;
     public ArrayList<MultipleAnswerQuestion> multipleAnswerQuestions;
     public ArrayList<EditedAnswerQuestion> editedAnswerQuestions;

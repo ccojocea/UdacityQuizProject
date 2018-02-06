@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity{
 
-    TextView tvClickable1, tvClickable2, tvClickable3, tvClickableAuthorLicense, tvClickableFontLicense;
+    private TextView tvClickable1, tvClickable2, tvClickable3, tvClickableAuthorLicense, tvClickableFontLicense;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

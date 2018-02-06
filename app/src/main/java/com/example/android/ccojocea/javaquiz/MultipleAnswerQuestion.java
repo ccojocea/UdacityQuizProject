@@ -39,16 +39,16 @@ public class MultipleAnswerQuestion extends Question {
                 count++;
             }
             if(count <= 2){
-                if (isAnswer1Correct == isAnswer1selected & isAnswer1Correct == true){
+                if (isAnswer1Correct == isAnswer1selected & isAnswer1Correct){
                     score += 0.5;
                 }
-                if (isAnswer2Correct == isAnswer2selected & isAnswer2Correct == true){
+                if (isAnswer2Correct == isAnswer2selected & isAnswer2Correct){
                     score += 0.5;
                 }
-                if (isAnswer3Correct == isAnswer3selected & isAnswer3Correct == true){
+                if (isAnswer3Correct == isAnswer3selected & isAnswer3Correct){
                     score += 0.5;
                 }
-                if (isAnswer4Correct == isAnswer4selected & isAnswer4Correct == true) {
+                if (isAnswer4Correct == isAnswer4selected & isAnswer4Correct) {
                     score += 0.5;
                 }
                 if (score != 1.0f){
@@ -73,16 +73,16 @@ public class MultipleAnswerQuestion extends Question {
                 count++;
             }
             if(count <= 2){
-                if (isAnswer1Correct == isAnswer1selected & isAnswer1Correct == true){
+                if (isAnswer1Correct == isAnswer1selected & isAnswer1Correct){
                     score += 0.5;
                 }
-                if (isAnswer2Correct == isAnswer2selected & isAnswer2Correct == true){
+                if (isAnswer2Correct == isAnswer2selected & isAnswer2Correct){
                     score += 0.5;
                 }
-                if (isAnswer3Correct == isAnswer3selected & isAnswer3Correct == true){
+                if (isAnswer3Correct == isAnswer3selected & isAnswer3Correct){
                     score += 0.5;
                 }
-                if (isAnswer4Correct == isAnswer4selected & isAnswer4Correct == true) {
+                if (isAnswer4Correct == isAnswer4selected & isAnswer4Correct) {
                     score += 0.5;
                 }
             }
@@ -90,34 +90,34 @@ public class MultipleAnswerQuestion extends Question {
 
         //partial result score (old version) - Get points for each correct answer, get penalised for the same amount for any incorrect answer
         if(grading == GradingSystem.PARTIAL_OLD){
-            if (isAnswer1Correct == isAnswer1selected & isAnswer1Correct == true){
+            if (isAnswer1Correct == isAnswer1selected & isAnswer1Correct){
                 score += 0.5;
             }
-            if (isAnswer2Correct == isAnswer2selected & isAnswer2Correct == true){
+            if (isAnswer2Correct == isAnswer2selected & isAnswer2Correct){
                 score += 0.5;
             }
-            if (isAnswer3Correct == isAnswer3selected & isAnswer3Correct == true){
+            if (isAnswer3Correct == isAnswer3selected & isAnswer3Correct){
                 score += 0.5;
             }
-            if (isAnswer4Correct == isAnswer4selected & isAnswer4Correct == true){
+            if (isAnswer4Correct == isAnswer4selected & isAnswer4Correct){
                 score += 0.5;
             }
-            if (isAnswer1Correct != isAnswer1selected & isAnswer1Correct == false){
+            if (isAnswer1Correct != isAnswer1selected & !isAnswer1Correct){
                 if(score > 0.0){
                     score -= 0.5;
                 }
             }
-            if (isAnswer2Correct != isAnswer2selected & isAnswer2Correct == false){
+            if (isAnswer2Correct != isAnswer2selected & !isAnswer2Correct){
                 if(score > 0.0){
                     score -= 0.5;
                 }
             }
-            if (isAnswer3Correct != isAnswer3selected & isAnswer3Correct == false){
+            if (isAnswer3Correct != isAnswer3selected & !isAnswer3Correct){
                 if(score > 0.0){
                     score -= 0.5;
                 }
             }
-            if (isAnswer4Correct != isAnswer4selected & isAnswer4Correct == false){
+            if (isAnswer4Correct != isAnswer4selected & !isAnswer4Correct){
                 if(score > 0.0){
                     score -= 0.5;
                 }

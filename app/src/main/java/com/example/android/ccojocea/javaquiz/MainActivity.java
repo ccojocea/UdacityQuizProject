@@ -13,10 +13,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
@@ -46,51 +44,51 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements ConfirmSubmitDialogFragment.ConfirmDialogListener{
     //score as string to save the value of either an int or a float in regards to score
-    String score = "";
+    private String score = "";
     //variable used by the timer
-    int countUp = -1;
+    private int countUp = -1;
     //used to know if the quiz was ended for orientation change purposes
-    boolean isOver = false;
+    private boolean isOver = false;
     //boolean to know if the Quiz has been instantiated and it's safe to read from the arrays
-    boolean readArray;
+    private boolean readArray;
     //save all unanswered questions into an array
-    int[] unansweredQuestions;
+    private int[] unansweredQuestions;
     //used to store if the correct answer was found for the 4 EditText questions, again for orientation change purposes
-    boolean etAnswer9, etAnswer10, etAnswer11, etAnswer12;
+    private boolean etAnswer9, etAnswer10, etAnswer11, etAnswer12;
     //String for eMail message
-    String mailMessage;
+    private String mailMessage;
 
     //Change this to Full, Old, New for different types of grading for the multiple choice questions
-    MultipleAnswerQuestion.GradingSystem grading = MultipleAnswerQuestion.GradingSystem.FULL;
+    private MultipleAnswerQuestion.GradingSystem grading = MultipleAnswerQuestion.GradingSystem.FULL;
 
-    Quiz mQuiz;
+    private Quiz mQuiz;
 
-    Timer t;
+    private Timer t;
 
-    ScrollView scrollView;
-    LinearLayout layoutMask;
-    ImageView javaLogo;
-    Button scoreButton, shareButton, restartButton;
-    View theLine;
-    TextView timerText, scoreView;
-    TextView textView9, textView10, textView11, textView12;
-    Toast quizToast;
+    private ScrollView scrollView;
+    private LinearLayout layoutMask;
+    private ImageView javaLogo;
+    private Button scoreButton, shareButton, restartButton;
+    private View theLine;
+    private TextView timerText, scoreView;
+    private TextView textView9, textView10, textView11, textView12;
+    private Toast quizToast;
 
     //Question ImageViews
-    ImageView imgQuestion2, imgQuestion3, imgQuestion4, imgQuestion7, imgQuestion9, imgQuestion10, imgQuestion11;
+    private ImageView imgQuestion2, imgQuestion3, imgQuestion4, imgQuestion7, imgQuestion9, imgQuestion10, imgQuestion11;
 
     //Views related to answers:
     //Single Answer Views
-    RadioGroup radioQuestion1, radioQuestion2, radioQuestion3, radioQuestion4;
+    private RadioGroup radioQuestion1, radioQuestion2, radioQuestion3, radioQuestion4;
     //Multiple Answer Views
-    CheckBox checkBox51, checkBox52, checkBox53, checkBox54;
-    CheckBox checkBox61, checkBox62, checkBox63, checkBox64;
-    CheckBox checkBox71, checkBox72, checkBox73, checkBox74;
-    CheckBox checkBox81, checkBox82, checkBox83, checkBox84;
+    private CheckBox checkBox51, checkBox52, checkBox53, checkBox54;
+    private CheckBox checkBox61, checkBox62, checkBox63, checkBox64;
+    private CheckBox checkBox71, checkBox72, checkBox73, checkBox74;
+    private CheckBox checkBox81, checkBox82, checkBox83, checkBox84;
     //EditText Views
-    EditText editText9, editText10, editText11, editText12;
+    private EditText editText9, editText10, editText11, editText12;
     //Spinner
-    Spinner spinnerMultipleChoice;
+    private Spinner spinnerMultipleChoice;
 
     //Zoom related variables
 
@@ -280,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
         }
 
         // Load the high-resolution "zoomed-in" image.
-        final ImageView expandedImageView = (ImageView) findViewById(id);
+        final ImageView expandedImageView = findViewById(id);
         expandedImageView.setImageResource(imageResId);
 
         // Calculate the starting and ending bounds for the zoomed-in image.
@@ -635,7 +633,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmSubmitDial
     /**
      * Check all answers and display the result in a Toast message.
      */
-    public void checkYourAnswers(){
+    private void checkYourAnswers(){
         readArray = true;
 
         //Get spinner position to implement grading system
